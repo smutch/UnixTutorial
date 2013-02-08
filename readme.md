@@ -32,7 +32,9 @@ This script is courtesy of [this article](http://brettterpstra.com/2011/03/07/wa
 ```console
 python -m SimpleHTTPServer 8020 &
 open -a Google\ Chrome http://localhost:8020/index.html
-ruby chrome_watcher.rb pages 'localhost:8020'
+cd ..
+ruby chrome_watcher.rb build_html/pages 'localhost:8020'
 ```
 
-Then every time you run `make html` in source root directory, Google Chrome will automatically refresh!
+Then every time you run `make html` in source root directory, Google Chrome will automatically refresh! (Unless you have only changed `index.rst`, then you will need to manually refresh...)
+

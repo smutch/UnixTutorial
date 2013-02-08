@@ -6,15 +6,17 @@
 Unix for Astronomers
 =====================
 
-These are the course notes for the **Basic and advanced Unix** section of the `2013 ASA/ANITA Astroinformatics Summer School <http://www.smp.uq.edu.au/anitaworkshop2013/?page_id=30>`_.
+These are the course notes for the **Basic and Advanced Unix** sessions of the `2013 ASA/ANITA Astroinformatics Summer School <http://www.smp.uq.edu.au/anitaworkshop2013/?page_id=30>`_.
 
-These notes are a shameless (barely altered) reworking of the excellent `Unix Tutorial <http://www.ee.surrey.ac.uk/Teaching/Unix/>`_ by M. Stonebank (2001; The University of Surrey).
+These notes are a shameless (in some places barely altered) reworking of the `Unix Tutorial <http://www.ee.surrey.ac.uk/Teaching/Unix/>`_ by M. Stonebank (2001; The University of Surrey).
+
+As such, this work is licensed under a `Creative Commons Attribution-ShareAlike 3.0 Unported License <http://creativecommons.org/licenses/by-sa/3.0/deed.en_US>`_.
 
 .. image:: http://i.creativecommons.org/l/by-sa/3.0/88x31.png
    :alt: Creative Commons License 
    :target: http://creativecommons.org/licenses/by-sa/3.0/deed.en_US 
+   :align: center
 
-This work is licensed under a `Creative Commons Attribution-ShareAlike 3.0 Unported License <http://creativecommons.org/licenses/by-sa/3.0/deed.en_US>`_.
 
 
 --------
@@ -29,5 +31,16 @@ Basic Unix
    :glob:
 
    pages/basic/*
-   
+  
+Advanced Unix
+-------------
+
+.. toctree::
+   :maxdepth: 2
+   :glob:
+
+   pages/advanced/*
+
+To come...
+
 
