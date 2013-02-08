@@ -1,0 +1,335 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Part 1 &mdash; Unix Tutorial</title>
+    
+    <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Unix Tutorial" href="../../index.html" />
+    <link rel="next" title="Part 2" href="part-2.html" />
+    <link rel="prev" title="What is Unix?" href="part-0.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="part-2.html" title="Part 2"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="part-0.html" title="What is Unix?"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">Unix Tutorial</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="part-1">
+<h1>Part 1<a class="headerlink" href="#part-1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="listing-files-and-directories">
+<h2>Listing files and directories<a class="headerlink" href="#listing-files-and-directories" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="ls-list">
+<h3><tt class="docutils literal"><span class="pre">ls</span></tt> (list)<a class="headerlink" href="#ls-list" title="Permalink to this headline">¶</a></h3>
+<p>When you first login, your current working directory is your home
+directory. Your home directory has the same name as your user-name, for
+example, and it is where your personal files and subdirectories
+are saved.</p>
+<p>To find out what is in your home directory, type:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">%</span> ls
+</pre></div>
+</div>
+<p>The <tt class="docutils literal"><span class="pre">ls</span></tt> (short for list) command lists the contents of your current working
+directory.</p>
+<p>There may be no files visible in your home directory, in which case, the Unix
+prompt will be returned. Alternatively, there may already be some files created
+by the operating system or your System Administrator when your account was
+created.</p>
+<p><tt class="docutils literal"><span class="pre">ls</span></tt> does not, in fact, cause all the files in your home directory to be
+listed, but only those ones whose name does not begin with a dot (<tt class="docutils literal"><span class="pre">.</span></tt>)
+Files beginning with a dot (<tt class="docutils literal"><span class="pre">.</span></tt>) are known as <em>hidden</em> files and usually
+contain important program configuration information. They are hidden
+because you should generally not change them unless you are familiar with
+Unix.</p>
+<p>To list all files in your home directory including those whose names
+begin with a dot, type:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">%</span> ls -a
+</pre></div>
+</div>
+<p><tt class="docutils literal"><span class="pre">ls</span></tt> is an example of a command which can take <em>flags</em>: <tt class="docutils literal"><span class="pre">-a</span></tt> is an example.
+Flags change the behaviour of a command. There are manual pages that tell you
+which flags a particular command can take, and how each one modifies the
+behaviour of the command.</p>
+</div>
+</div>
+<div class="section" id="making-directories">
+<h2>Making Directories<a class="headerlink" href="#making-directories" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="mkdir-make-directory">
+<h3><tt class="docutils literal"><span class="pre">mkdir</span></tt> (make directory)<a class="headerlink" href="#mkdir-make-directory" title="Permalink to this headline">¶</a></h3>
+<p>We will now make a subdirectory in your home directory to hold the files
+you will be creating and using in the course of this tutorial. To make a
+subdirectory called &#8220;unix_tutorial&#8221; in your current working directory type:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">%</span> mkdir unix_tutorial
+</pre></div>
+</div>
+<p>Here <tt class="docutils literal"><span class="pre">unix_tutorial</span></tt> is an <em>argument</em> to the <tt class="docutils literal"><span class="pre">mkdir</span></tt> command.  Some
+commands, such as <tt class="docutils literal"><span class="pre">mkdir</span></tt> require an argument at all times (in this case, the
+name of the directory we want to create).  Other commands, such as <tt class="docutils literal"><span class="pre">ls</span></tt> can
+take arguments, but do not necessarily require them.</p>
+<p>To see the directory you have just created, type:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">%</span> ls
+</pre></div>
+</div>
+<p>Notice the lack of an argument for the <tt class="docutils literal"><span class="pre">ls</span></tt> command here.  This means
+&#8220;list the contents of my current working directory&#8221;.  If were to instead type:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">%</span> ls unix_tutorial
+</pre></div>
+</div>
+<p>we would be presented with the contents of our newly created directory (which
+is currently empty though!).</p>
+</div>
+</div>
+<div class="section" id="changing-to-a-different-directory">
+<h2>Changing to a different directory<a class="headerlink" href="#changing-to-a-different-directory" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="cd-change-directory">
+<h3><tt class="docutils literal"><span class="pre">cd</span></tt> (change directory)<a class="headerlink" href="#cd-change-directory" title="Permalink to this headline">¶</a></h3>
+<p>The command <tt class="docutils literal"><span class="pre">cd</span></tt> changes the current working directory to another one you
+specify. The current working directory is the directory you are currently in -
+your current position in the file-system tree.</p>
+<p>To change to the directory you have just made, type:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">%</span> <span class="nb">cd </span>unix_tutorial
+</pre></div>
+</div>
+<p>Type <tt class="docutils literal"><span class="pre">ls</span></tt> to see the contents (which should be empty).</p>
+<span class="target" id="exercise1a"></span></div>
+</div>
+<div class="section" id="the-directories-and">
+<h2>The directories <tt class="docutils literal"><span class="pre">.</span></tt> and <tt class="docutils literal"><span class="pre">..</span></tt><a class="headerlink" href="#the-directories-and" title="Permalink to this headline">¶</a></h2>
+<p>Still in the <tt class="docutils literal"><span class="pre">unix_tutorial</span></tt> directory, type:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">%</span> ls -a
+</pre></div>
+</div>
+<p>As you can see, in the <tt class="docutils literal"><span class="pre">unix_tutorial</span></tt> directory (and in all other
+directories), there are two special directories called <tt class="docutils literal"><span class="pre">.</span></tt> and
+<tt class="docutils literal"><span class="pre">..</span></tt></p>
+<p>In UNIX, <tt class="docutils literal"><span class="pre">.</span></tt> means the current directory, so typing:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">%</span> <span class="nb">cd</span> .
+</pre></div>
+</div>
+<p>means stay where you are (the <tt class="docutils literal"><span class="pre">unix_tutorial</span></tt> directory).</p>
+<p>This may not seem very useful at first, but using <tt class="docutils literal"><span class="pre">.</span></tt> as the name of
+the current directory will save a lot of typing, as we shall see later
+in the tutorial.</p>
+<p><tt class="docutils literal"><span class="pre">..</span></tt> means the parent of the current directory, so typing:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">%</span> <span class="nb">cd</span> ..
+</pre></div>
+</div>
+<p>will take you one directory up the hierarchy (back to your home
+directory). Try it now.</p>
+</div>
+<div class="section" id="pathnames">
+<h2>Pathnames<a class="headerlink" href="#pathnames" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="pwd-print-working-directory">
+<h3><tt class="docutils literal"><span class="pre">pwd</span></tt> (print working directory)<a class="headerlink" href="#pwd-print-working-directory" title="Permalink to this headline">¶</a></h3>
+<p>Pathnames enable you to work out where you are in relation to the whole
+file-system. For example, to find out the absolute pathname of your
+home-directory, type <tt class="docutils literal"><span class="pre">cd</span></tt> to get back to your home-directory and then
+type:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">%</span> <span class="nb">pwd</span>
+</pre></div>
+</div>
+<p>The full pathname <strong>may</strong> look something like this:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="go">/Users/myname</span>
+</pre></div>
+</div>
+<p>which means that <tt class="docutils literal"><span class="pre">myname</span></tt> (your home directory) is in the directory
+<tt class="docutils literal"><span class="pre">Users</span></tt> (the group directory), which itself is located at the root of
+file-system.</p>
+</div>
+</div>
+<div class="section" id="more-about-home-directories-and-pathnames">
+<h2>More about home directories and pathnames<a class="headerlink" href="#more-about-home-directories-and-pathnames" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="understanding-pathnames">
+<h3>Understanding pathnames<a class="headerlink" href="#understanding-pathnames" title="Permalink to this headline">¶</a></h3>
+<p>First type <tt class="docutils literal"><span class="pre">cd</span></tt> to get back to your home-directory, then type:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">%</span> ls unix_tutorial
+</pre></div>
+</div>
+<p>to list the contents of your <tt class="docutils literal"><span class="pre">unix_tutorial</span></tt> directory.</p>
+<p>Now type:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">%</span> ls backups
+</pre></div>
+</div>
+<p>You will get a message like this:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="go">backups: No such file or directory</span>
+</pre></div>
+</div>
+<p>The reason is, <tt class="docutils literal"><span class="pre">backups</span></tt> is not in your current working directory. To
+use a command on a file (or directory) not in the current working
+directory (the directory you are currently in), you must either <tt class="docutils literal"><span class="pre">cd</span></tt> to
+the correct directory, or specify its full pathname. Therefore, to list the
+contents of your backups directory, you must type:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">%</span> ls unix_tutorial/backups
+</pre></div>
+</div>
+</div>
+<div class="section" id="your-home-directory">
+<h3><tt class="docutils literal"><span class="pre">~</span></tt> (your home directory)<a class="headerlink" href="#your-home-directory" title="Permalink to this headline">¶</a></h3>
+<p>Home directories can also be referred to by the tilde (<tt class="docutils literal"><span class="pre">~</span></tt>) character.
+It can be used to specify paths starting at your home directory. So
+typing:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">%</span> ls ~/unix_tutorial
+</pre></div>
+</div>
+<p>will list the contents of your <tt class="docutils literal"><span class="pre">unix_tutorial</span></tt> directory, no matter where you
+currently are in the file system.</p>
+</div>
+</div>
+<div class="section" id="summary-of-commands">
+<h2>Summary of commands<a class="headerlink" href="#summary-of-commands" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="28%" />
+<col width="72%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">ls</span></tt></td>
+<td>list files and directories</td>
+</tr>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">ls</span> <span class="pre">-a</span></tt></td>
+<td>list all files and directories (including hidden)</td>
+</tr>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">mkdir</span></tt></td>
+<td>make a directory</td>
+</tr>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">cd</span> <span class="pre">directory</span></tt></td>
+<td>change to named directory</td>
+</tr>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">cd</span></tt></td>
+<td>change to home-directory</td>
+</tr>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">cd</span> <span class="pre">~</span></tt></td>
+<td>change to home-directory</td>
+</tr>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">cd</span> <span class="pre">..</span></tt></td>
+<td>change to parent directory of current location</td>
+</tr>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">pwd</span></tt></td>
+<td>display the full path of the current directory</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Part 1</a><ul>
+<li><a class="reference internal" href="#listing-files-and-directories">Listing files and directories</a><ul>
+<li><a class="reference internal" href="#ls-list"><tt class="docutils literal"><span class="pre">ls</span></tt> (list)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#making-directories">Making Directories</a><ul>
+<li><a class="reference internal" href="#mkdir-make-directory"><tt class="docutils literal"><span class="pre">mkdir</span></tt> (make directory)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#changing-to-a-different-directory">Changing to a different directory</a><ul>
+<li><a class="reference internal" href="#cd-change-directory"><tt class="docutils literal"><span class="pre">cd</span></tt> (change directory)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#the-directories-and">The directories <tt class="docutils literal"><span class="pre">.</span></tt> and <tt class="docutils literal"><span class="pre">..</span></tt></a></li>
+<li><a class="reference internal" href="#pathnames">Pathnames</a><ul>
+<li><a class="reference internal" href="#pwd-print-working-directory"><tt class="docutils literal"><span class="pre">pwd</span></tt> (print working directory)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#more-about-home-directories-and-pathnames">More about home directories and pathnames</a><ul>
+<li><a class="reference internal" href="#understanding-pathnames">Understanding pathnames</a></li>
+<li><a class="reference internal" href="#your-home-directory"><tt class="docutils literal"><span class="pre">~</span></tt> (your home directory)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#summary-of-commands">Summary of commands</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="part-0.html"
+                        title="previous chapter">What is Unix?</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="part-2.html"
+                        title="next chapter">Part 2</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../../_sources/pages/basic/part-1.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="part-2.html" title="Part 2"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="part-0.html" title="What is Unix?"
+             >previous</a> |</li>
+        <li><a href="../../index.html">Unix Tutorial</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

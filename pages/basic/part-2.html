@@ -1,0 +1,432 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Part 2 &mdash; Unix Tutorial</title>
+    
+    <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Unix Tutorial" href="../../index.html" />
+    <link rel="next" title="Part 3" href="part-3.html" />
+    <link rel="prev" title="Part 1" href="part-1.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="part-3.html" title="Part 3"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="part-1.html" title="Part 1"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">Unix Tutorial</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="part-2">
+<h1>Part 2<a class="headerlink" href="#part-2" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="copying-files">
+<h2>Copying Files<a class="headerlink" href="#copying-files" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="cp-copy">
+<h3><tt class="docutils literal"><span class="pre">cp</span></tt> (copy)<a class="headerlink" href="#cp-copy" title="Permalink to this headline">¶</a></h3>
+<p>The command <tt class="docutils literal"><span class="pre">cp</span> <span class="pre">file1</span> <span class="pre">file2</span></tt> will make a copy of <tt class="docutils literal"><span class="pre">file1</span></tt> in the
+current working directory with then name <tt class="docutils literal"><span class="pre">file2</span></tt>.</p>
+<p>What we are going to do now is download a file from the internet, save it to
+our <tt class="docutils literal"><span class="pre">unix_tutorial</span></tt> directory and then use the <tt class="docutils literal"><span class="pre">cp</span></tt> command to copy that
+file to our <tt class="docutils literal"><span class="pre">backups</span></tt> directory (which we created in <cite>exercise 1a
+&lt;exercise1a&gt;</cite>).</p>
+<p>First point your web browser to <a class="reference external" href="dummy">this link</a> and save this file using
+&#8220;<em>Save as..</em>&#8221; to your <tt class="docutils literal"><span class="pre">unix_tutorial</span></tt> directory.</p>
+<p>Now, <tt class="docutils literal"><span class="pre">cd</span></tt> to your <tt class="docutils literal"><span class="pre">unix_tutorial</span></tt> directory.</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">%</span> <span class="nb">cd</span> ~/unix_tutorial
+</pre></div>
+</div>
+<p>Then at the Unix prompt, type:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">%</span> cp my_first_file.txt my_first_file.bu
+</pre></div>
+</div>
+<p>This command means copy the file <tt class="docutils literal"><span class="pre">my_first_file.txt</span></tt> to <tt class="docutils literal"><span class="pre">my_first_file.bu</span></tt>.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">The <tt class="docutils literal"><span class="pre">cp</span></tt> command allows you to use already existing filenames as the
+target for the copy, hence it can be used to overwrite files!</p>
+</div>
+</div>
+</div>
+<div class="section" id="moving-files">
+<h2>Moving files<a class="headerlink" href="#moving-files" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="mv-move">
+<h3><tt class="docutils literal"><span class="pre">mv</span></tt> (move)<a class="headerlink" href="#mv-move" title="Permalink to this headline">¶</a></h3>
+<p>The command <tt class="docutils literal"><span class="pre">mv</span> <span class="pre">file1</span> <span class="pre">file2</span></tt> moves (or renames) <tt class="docutils literal"><span class="pre">file1</span></tt> to <tt class="docutils literal"><span class="pre">file2</span></tt>.</p>
+<p>To move a file from one place to another, use the <tt class="docutils literal"><span class="pre">mv</span></tt> command. This has
+the effect of moving rather than copying the file, so you end up with
+only one file rather than two.</p>
+<p>It can also be used to rename a file, by moving the file to the same
+directory, but giving it a different name.</p>
+<p>We are now going to move the file <tt class="docutils literal"><span class="pre">my_first_file.bu</span></tt> to your backup directory.</p>
+<p>First, change directories to your <tt class="docutils literal"><span class="pre">unix_tutorial</span></tt> directory (using the <tt class="docutils literal"><span class="pre">cd</span></tt> command). Then, inside the <tt class="docutils literal"><span class="pre">unix_tutorial</span></tt> directory, type:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">%</span> mv my_first_file.bu backups/
+</pre></div>
+</div>
+<p>Type <tt class="docutils literal"><span class="pre">ls</span></tt> and <tt class="docutils literal"><span class="pre">ls</span> <span class="pre">backups</span></tt> to see if it has worked.</p>
+</div>
+</div>
+<div class="section" id="removing-files-and-directories">
+<h2>Removing files and directories<a class="headerlink" href="#removing-files-and-directories" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="rm-remove-rmdir-remove-directory">
+<h3><tt class="docutils literal"><span class="pre">rm</span></tt> (remove), <tt class="docutils literal"><span class="pre">rmdir</span></tt> (remove directory)<a class="headerlink" href="#rm-remove-rmdir-remove-directory" title="Permalink to this headline">¶</a></h3>
+<p>To delete (remove) a file, use the <tt class="docutils literal"><span class="pre">rm</span></tt> command. As an example, we are
+going to create a copy of the <tt class="docutils literal"><span class="pre">my_first_file.txt</span></tt> file then delete it.</p>
+<p>Inside your <tt class="docutils literal"><span class="pre">unix_tutorial</span></tt> directory, type:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">%</span> cp my_first_file.txt tempfile.txt
+<span class="gp">%</span> ls
+</pre></div>
+</div>
+<p>You should now see both <tt class="docutils literal"><span class="pre">my_first_file.txt</span></tt> and <tt class="docutils literal"><span class="pre">tempfile.txt</span></tt> listed.  Next type:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">%</span> rm tempfile.txt
+<span class="gp">%</span> ls
+</pre></div>
+</div>
+<p>and the file <tt class="docutils literal"><span class="pre">tempfile.txt</span></tt> should be gone!</p>
+<p>You can use the <tt class="docutils literal"><span class="pre">rmdir</span></tt> command to remove an <strong>empty</strong> directory. Try to
+remove the <tt class="docutils literal"><span class="pre">backups</span></tt> directory.  You will not be able to since Unix will not
+let you remove a non-empty directory.</p>
+<div class="topic">
+<p class="topic-title first">Exercise 2a</p>
+<p>Create a directory called <tt class="docutils literal"><span class="pre">Tempstuff</span></tt> using mkdir , then remove it
+using the rmdir command.</p>
+</div>
+</div>
+</div>
+<div class="section" id="displaying-the-contents-of-a-file-on-the-screen">
+<h2>Displaying the contents of a file on the screen<a class="headerlink" href="#displaying-the-contents-of-a-file-on-the-screen" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="clear-clear-screen">
+<h3><tt class="docutils literal"><span class="pre">clear</span></tt> (clear screen)<a class="headerlink" href="#clear-clear-screen" title="Permalink to this headline">¶</a></h3>
+<p>Before you start the next section, you may like to clear the terminal
+window of the previous commands so the output of the following commands
+can be clearly understood.</p>
+<p>At the prompt, type:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">%</span> clear
+</pre></div>
+</div>
+<p>This will clear all text and leave you with the prompt at the top of the
+window.</p>
+</div>
+<div class="section" id="cat-concatenate">
+<h3><tt class="docutils literal"><span class="pre">cat</span></tt> (concatenate)<a class="headerlink" href="#cat-concatenate" title="Permalink to this headline">¶</a></h3>
+<p>The command cat can be used to display the contents of a file on the
+screen. Type:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">%</span> cat my_first_file.txt
+</pre></div>
+</div>
+<p>Unfortunately, the file is longer than than the size of the window, so it
+scrolls past.  On many modern terminals we can just scroll up to see what we
+have missed, however, on older systems this may not be possible!</p>
+</div>
+<div class="section" id="less">
+<h3><tt class="docutils literal"><span class="pre">less</span></tt><a class="headerlink" href="#less" title="Permalink to this headline">¶</a></h3>
+<p>The command <tt class="docutils literal"><span class="pre">less</span></tt> writes the contents of a file onto the screen a page at a
+time. Type:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">%</span> less my_first_file.txt
+</pre></div>
+</div>
+<p>Press the <tt class="docutils literal"><span class="pre">[space-bar]</span></tt> if you want to see another page, of press <tt class="docutils literal"><span class="pre">q</span></tt> if
+you want to quit. Typically, <tt class="docutils literal"><span class="pre">less</span></tt> is a better option for reading a long
+file than <tt class="docutils literal"><span class="pre">cat</span></tt>.  Other useful keys in <tt class="docutils literal"><span class="pre">less</span></tt> include:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="29%" />
+<col width="71%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Key</th>
+<th class="head">Action</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">g</span></tt></td>
+<td>Return to top of file</td>
+</tr>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">G</span></tt></td>
+<td>Scroll to bottom of file</td>
+</tr>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">[up]</span></tt></td>
+<td>Scroll up one line</td>
+</tr>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">[down]</span></tt></td>
+<td>Scroll down one line</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="head">
+<h3><tt class="docutils literal"><span class="pre">head</span></tt><a class="headerlink" href="#head" title="Permalink to this headline">¶</a></h3>
+<p>The <tt class="docutils literal"><span class="pre">head</span></tt> command writes the first ten lines of a file to the screen.</p>
+<p>First clear the screen then type:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">%</span> head my_first_file.txt
+</pre></div>
+</div>
+<p>Then type:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">%</span> head -5 my_first_file.txt
+</pre></div>
+</div>
+<p>What difference did the <tt class="docutils literal"><span class="pre">-5</span></tt> option do to the head command?</p>
+</div>
+<div class="section" id="tail">
+<h3><tt class="docutils literal"><span class="pre">tail</span></tt><a class="headerlink" href="#tail" title="Permalink to this headline">¶</a></h3>
+<p>The <tt class="docutils literal"><span class="pre">tail</span></tt> command writes the last ten lines of a file to the screen.</p>
+<p>Clear the screen and type:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">%</span> tail my_first_file.txt
+</pre></div>
+</div>
+<p>How can you view the last 15 lines of the file?</p>
+<div class="topic">
+<p class="topic-title first">Exercise 2b</p>
+<p>Try using the tail command to view the last 15 lines of <tt class="docutils literal"><span class="pre">my_first_file.txt</span></tt>.</p>
+</div>
+</div>
+</div>
+<div class="section" id="searching-the-contents-of-a-file">
+<h2>Searching the contents of a file<a class="headerlink" href="#searching-the-contents-of-a-file" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="simple-searching-using-less">
+<h3>Simple searching using <tt class="docutils literal"><span class="pre">less</span></tt><a class="headerlink" href="#simple-searching-using-less" title="Permalink to this headline">¶</a></h3>
+<p>Using <tt class="docutils literal"><span class="pre">less</span></tt>, you can search though a text file for a keyword (or <em>pattern</em>).
+For example, to search through <tt class="docutils literal"><span class="pre">my_first_file.txt</span></tt> for the word &#8220;science&#8221;,
+type:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">%</span> less my_first_file.txt
+</pre></div>
+</div>
+<p>then, still in less (i.e. don&#8217;t press <tt class="docutils literal"><span class="pre">q</span></tt> to quit), type a forward slash (<tt class="docutils literal"><span class="pre">/</span></tt>)
+followed by the word you want to search for. i.e.</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="go">/science</span>
+</pre></div>
+</div>
+<p>As you can see, less finds and highlights the keyword. Type <tt class="docutils literal"><span class="pre">n</span></tt> to search for
+the next occurrence of the word.</p>
+</div>
+<div class="section" id="grep-don-t-ask-why-it-is-called-grep">
+<h3><tt class="docutils literal"><span class="pre">grep</span></tt> (don&#8217;t ask why it is called grep)<a class="headerlink" href="#grep-don-t-ask-why-it-is-called-grep" title="Permalink to this headline">¶</a></h3>
+<p><tt class="docutils literal"><span class="pre">grep</span></tt> is one of many standard Unix utilities. It searches files for
+specified words or patterns. First clear the screen, then type:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">%</span> grep science my_first_file.txt
+</pre></div>
+</div>
+<p>and <tt class="docutils literal"><span class="pre">grep</span></tt> will display each line containing the word &#8220;science&#8221;... <em>Or has it?</em></p>
+<p>Try:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">%</span> grep Science my_first_file.txt
+</pre></div>
+</div>
+<p>The <tt class="docutils literal"><span class="pre">grep</span></tt> command is case sensitive; it distinguishes between &#8220;Science&#8221; and
+&#8220;science&#8221;.</p>
+<p>To ignore upper/lower case distinctions, use the <tt class="docutils literal"><span class="pre">-i</span></tt> option, i.e.</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">%</span> grep -i science my_first_file.txt
+</pre></div>
+</div>
+<p>To search for a phrase or pattern, you must enclose it in single quotes
+(<cite>&#8216;</cite>). For example to search for &#8220;black holes&#8221;</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">%</span> grep -i <span class="s1">&#39;black holes&#39;</span> my_first_file.txt
+</pre></div>
+</div>
+<p>Some other useful <tt class="docutils literal"><span class="pre">grep</span></tt> include:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="11%" />
+<col width="89%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Option</th>
+<th class="head">Result</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">-n</span></tt></td>
+<td>precede each matching line with the line number</td>
+</tr>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">-v</span></tt></td>
+<td>display those lines that do <strong>not</strong> match</td>
+</tr>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">-c</span></tt></td>
+<td>print only the total count of matched lines</td>
+</tr>
+</tbody>
+</table>
+<p>Try some of them and see the different results. Don&#8217;t forget, you can
+use more than one option at a time, for example, the number of lines
+without the words &#8220;science&#8221; or &#8220;Science&#8221; is:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">%</span> grep -ivc science my_first_file.txt
+</pre></div>
+</div>
+</div>
+<div class="section" id="wc-word-count">
+<h3><tt class="docutils literal"><span class="pre">wc</span></tt> (word count)<a class="headerlink" href="#wc-word-count" title="Permalink to this headline">¶</a></h3>
+<p>A handy little utility is the <tt class="docutils literal"><span class="pre">wc</span></tt> command, short for word count. To do a
+word count on <tt class="docutils literal"><span class="pre">my_first_file.txt</span></tt>, type:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">%</span> wc -w my_first_file.txt
+</pre></div>
+</div>
+<p>To find out how many lines the file has, type:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">%</span> wc -l my_first_file.txt
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="summary-of-commands">
+<h2>Summary of commands<a class="headerlink" href="#summary-of-commands" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="35%" />
+<col width="65%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">cp</span> <span class="pre">file1</span> <span class="pre">file2</span></tt></td>
+<td>copy <tt class="docutils literal"><span class="pre">file1</span></tt> and call it <tt class="docutils literal"><span class="pre">file2</span></tt></td>
+</tr>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">mv</span> <span class="pre">file1</span> <span class="pre">file2</span></tt></td>
+<td>move or rename <tt class="docutils literal"><span class="pre">file1</span></tt> to <tt class="docutils literal"><span class="pre">file2</span></tt></td>
+</tr>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">rm</span> <span class="pre">file</span></tt></td>
+<td>remove a file</td>
+</tr>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">rmdir</span> <span class="pre">directory</span></tt></td>
+<td>remove a directory</td>
+</tr>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">cat</span> <span class="pre">file</span></tt></td>
+<td>display a file</td>
+</tr>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">more</span> <span class="pre">file</span></tt></td>
+<td>display a file a page at a time</td>
+</tr>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">head</span> <span class="pre">file</span></tt></td>
+<td>display the first few lines of a file</td>
+</tr>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">tail</span> <span class="pre">file</span></tt></td>
+<td>display the last few lines of a file</td>
+</tr>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">grep</span> <span class="pre">'keyword'</span> <span class="pre">file</span></tt></td>
+<td>search a file for keywords</td>
+</tr>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">wc</span> <span class="pre">file</span></tt></td>
+<td>count number of lines/words/characters in file</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Part 2</a><ul>
+<li><a class="reference internal" href="#copying-files">Copying Files</a><ul>
+<li><a class="reference internal" href="#cp-copy"><tt class="docutils literal"><span class="pre">cp</span></tt> (copy)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#moving-files">Moving files</a><ul>
+<li><a class="reference internal" href="#mv-move"><tt class="docutils literal"><span class="pre">mv</span></tt> (move)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#removing-files-and-directories">Removing files and directories</a><ul>
+<li><a class="reference internal" href="#rm-remove-rmdir-remove-directory"><tt class="docutils literal"><span class="pre">rm</span></tt> (remove), <tt class="docutils literal"><span class="pre">rmdir</span></tt> (remove directory)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#displaying-the-contents-of-a-file-on-the-screen">Displaying the contents of a file on the screen</a><ul>
+<li><a class="reference internal" href="#clear-clear-screen"><tt class="docutils literal"><span class="pre">clear</span></tt> (clear screen)</a></li>
+<li><a class="reference internal" href="#cat-concatenate"><tt class="docutils literal"><span class="pre">cat</span></tt> (concatenate)</a></li>
+<li><a class="reference internal" href="#less"><tt class="docutils literal"><span class="pre">less</span></tt></a></li>
+<li><a class="reference internal" href="#head"><tt class="docutils literal"><span class="pre">head</span></tt></a></li>
+<li><a class="reference internal" href="#tail"><tt class="docutils literal"><span class="pre">tail</span></tt></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#searching-the-contents-of-a-file">Searching the contents of a file</a><ul>
+<li><a class="reference internal" href="#simple-searching-using-less">Simple searching using <tt class="docutils literal"><span class="pre">less</span></tt></a></li>
+<li><a class="reference internal" href="#grep-don-t-ask-why-it-is-called-grep"><tt class="docutils literal"><span class="pre">grep</span></tt> (don&#8217;t ask why it is called grep)</a></li>
+<li><a class="reference internal" href="#wc-word-count"><tt class="docutils literal"><span class="pre">wc</span></tt> (word count)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#summary-of-commands">Summary of commands</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="part-1.html"
+                        title="previous chapter">Part 1</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="part-3.html"
+                        title="next chapter">Part 3</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../../_sources/pages/basic/part-2.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="part-3.html" title="Part 3"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="part-1.html" title="Part 1"
+             >previous</a> |</li>
+        <li><a href="../../index.html">Unix Tutorial</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

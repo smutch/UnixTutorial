@@ -1,0 +1,304 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Part 3 &mdash; Unix Tutorial</title>
+    
+    <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Unix Tutorial" href="../../index.html" />
+    <link rel="prev" title="Part 2" href="part-2.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="part-2.html" title="Part 2"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">Unix Tutorial</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="part-3">
+<h1>Part 3<a class="headerlink" href="#part-3" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="redirection">
+<h2>Redirection<a class="headerlink" href="#redirection" title="Permalink to this headline">¶</a></h2>
+<p>Most processes initiated by Unix commands write to the standard output
+(that is, they write to the terminal screen), and many take their input
+from the standard input (that is, they read it from the keyboard). There
+is also the standard error, where processes write their error messages,
+which is by default again the terminal screen.</p>
+<p>We have already seen one use of the <tt class="docutils literal"><span class="pre">cat</span></tt> command to write the contents of a
+file to the screen.</p>
+<p>Now type <tt class="docutils literal"><span class="pre">cat</span></tt> without specifying a file to read from standard input:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">%</span> cat
+</pre></div>
+</div>
+<p>Then type a few words on the keyboard and press the <tt class="docutils literal"><span class="pre">Return</span></tt> key.</p>
+<p>Finally hold the <tt class="docutils literal"><span class="pre">Ctrl</span></tt> key down and press <tt class="docutils literal"><span class="pre">d</span></tt> (written as <tt class="docutils literal"><span class="pre">^D</span></tt>
+for short) to end the input.</p>
+<p>What has happened?</p>
+<p>If you run the cat command without specifying a file to read, it reads
+the standard input (the keyboard), and on receiving the &#8216;end of file&#8217;
+(<tt class="docutils literal"><span class="pre">^D</span></tt>), copies it to the standard output (the screen).</p>
+<p>In Unix, we can redirect both the input and the output of commands.</p>
+</div>
+<div class="section" id="redirecting-the-output">
+<h2>Redirecting the Output<a class="headerlink" href="#redirecting-the-output" title="Permalink to this headline">¶</a></h2>
+<p>We use the <tt class="docutils literal"><span class="pre">&gt;</span></tt> symbol to redirect the output of a command. For example, to
+create a file called <tt class="docutils literal"><span class="pre">list1.txt</span></tt> containing a list of fruit, type:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">%</span> cat &gt; list1.txt
+</pre></div>
+</div>
+<p>Then type in the names of some fruit. Press <tt class="docutils literal"><span class="pre">Return</span></tt> after each one.</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="go">pear</span>
+<span class="go">banana</span>
+<span class="go">apple</span>
+</pre></div>
+</div>
+<p>To stop press <tt class="docutils literal"><span class="pre">^D</span></tt> (control D).</p>
+<p>What happens is the cat command reads the standard input (the keyboard)
+and the <tt class="docutils literal"><span class="pre">&gt;</span></tt> redirects the output, which normally goes to the screen, into
+a file called <tt class="docutils literal"><span class="pre">list1.txt</span></tt>.</p>
+<p>To read the contents of the file, type:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">%</span> cat list1.txt
+</pre></div>
+</div>
+<div class="topic">
+<p class="topic-title first">Exercise 3a</p>
+<p>Using the above method, create another file called <tt class="docutils literal"><span class="pre">list2.txt</span></tt> containing
+the following fruit: orange, plum, mango, grapefruit. Read the contents
+of <tt class="docutils literal"><span class="pre">list2.txt</span></tt>.</p>
+</div>
+<p>The form <tt class="docutils literal"><span class="pre">&gt;&gt;</span></tt> appends standard output to a file. So to add more items to
+the file <tt class="docutils literal"><span class="pre">list1.txt</span></tt>, type:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">%</span> cat &gt;&gt; list1.txt
+</pre></div>
+</div>
+<p>Then type in the names of more fruit:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="go">peach</span>
+<span class="go">grape</span>
+<span class="go">orange</span>
+</pre></div>
+</div>
+<p>and then <tt class="docutils literal"><span class="pre">^D</span></tt> (control D) to stop.</p>
+<p>To read the contents of the file, type:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">%</span> cat list1.txt
+</pre></div>
+</div>
+<p>You should now have two files. One contains six fruit, the other
+contains four fruit. We will now use the cat command to join
+(concatenate) <tt class="docutils literal"><span class="pre">list1.txt</span></tt> and <tt class="docutils literal"><span class="pre">list2.txt</span></tt> into a new file called
+<tt class="docutils literal"><span class="pre">biglist.txt</span></tt>. Type:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">%</span> cat list1.txt list2.txt &gt; biglist.txt
+</pre></div>
+</div>
+<p>What this is doing is reading the contents of <tt class="docutils literal"><span class="pre">list1.txt</span></tt> and <tt class="docutils literal"><span class="pre">list2.txt</span></tt> in
+turn, then outputting the text to the file <tt class="docutils literal"><span class="pre">biglist.txt</span></tt>.</p>
+<p>To read the contents of the new file, type:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">%</span> cat biglist.txt
+</pre></div>
+</div>
+<p>Piping the output of a command to a file can be extremely useful.  For example,
+imagine that we are running a large script which carries out some complex
+manipulation of our data and takes a long time to complete.  Typically we would
+setup our script so that it prints out status messages telling us that certain
+tasks have been completed or certain files have been read/written.  By piping
+the output of our script to a file we can record these log messages for future
+reference or for situations where we may want to leave the script running after
+we have logged out (and hence there will be no standard output).</p>
+</div>
+<div class="section" id="redirecting-the-input">
+<h2>Redirecting the Input<a class="headerlink" href="#redirecting-the-input" title="Permalink to this headline">¶</a></h2>
+<p>We use the <tt class="docutils literal"><span class="pre">&lt;</span></tt> symbol to redirect the input of a command.</p>
+<p>The command sort alphabetically or numerically sorts a list. Type:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">%</span> sort
+</pre></div>
+</div>
+<p>Then type in the names of some vegetables. Press <tt class="docutils literal"><span class="pre">Return</span></tt> after each
+one.</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="go">carrot</span>
+<span class="go">beetroot</span>
+<span class="go">artichoke</span>
+<span class="go">^D</span>
+</pre></div>
+</div>
+<p>The output will be:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="go">artichoke</span>
+<span class="go">beetroot</span>
+<span class="go">carrot</span>
+</pre></div>
+</div>
+<p>Using <tt class="docutils literal"><span class="pre">&lt;</span></tt> you can redirect the input to come from a file rather than the
+keyboard. For example, to sort the list of fruit, type:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">%</span> sort &lt; biglist.txt
+</pre></div>
+</div>
+<p>and the sorted list will be output to the screen.</p>
+<p>To output the sorted list to a file, type:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">%</span> sort &lt; biglist.txt &gt; sorted_list.txt
+</pre></div>
+</div>
+<p>Use cat to read the contents of the file <tt class="docutils literal"><span class="pre">sorted_list.txt</span></tt>.</p>
+</div>
+<div class="section" id="pipes">
+<h2>Pipes<a class="headerlink" href="#pipes" title="Permalink to this headline">¶</a></h2>
+<p>To see who is on the system with you, type:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">%</span> who
+</pre></div>
+</div>
+<p>One method to get a sorted list of names is to type:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">%</span> who &gt; names.txt
+<span class="gp">%</span> sort &lt; names.txt
+</pre></div>
+</div>
+<p>This is a bit slow and you have to remember to remove the temporary file
+called names when you have finished. What you really want to do is
+connect the output of the who command directly to the input of the sort
+command. This is exactly what pipes do. The symbol for a pipe is the
+vertical bar (<tt class="docutils literal"><span class="pre">|</span></tt>).  Pipes are one of the most useful features of Unix...</p>
+<p>For example, typing:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">%</span> who | sort
+</pre></div>
+</div>
+<p>will give the same result as above, but quicker and cleaner.</p>
+<p>To find out how many users are logged on, type:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">%</span> who | wc -l
+</pre></div>
+</div>
+<p>Pipes can be used to string together multiple commands, making them extremely powerful.  For example, in order to find out out many <strong>other</strong> users (i.e. excluding ourselves) are logged onto the system we could use the following:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">%</span> who | grep -v <span class="o">[</span>username<span class="o">]</span> | wc -l
+</pre></div>
+</div>
+<p>where <tt class="docutils literal"><span class="pre">[username]</span></tt> should be replaced by your own user name.</p>
+<p>What we have done here is run the <tt class="docutils literal"><span class="pre">who</span></tt> to find out who is logged into the system.  The output has then been piped to the command <tt class="docutils literal"><span class="pre">grep</span></tt> which has <strong>removed</strong> (as a result of the <tt class="docutils literal"><span class="pre">-v</span></tt> flag) all lines containing our username.  Finally, this output has been piped to <tt class="docutils literal"><span class="pre">wc</span></tt> which has counted the number of lines.</p>
+<div class="topic">
+<p class="topic-title first">Exercise 3b</p>
+<p>Create a file called <tt class="docutils literal"><span class="pre">current_users.txt</span></tt>, that holds a <strong>sorted</strong> list of
+all <em>other</em> users (i.e. excluding yourself) that are currently logged in to
+the system.</p>
+</div>
+</div>
+<div class="section" id="summary-of-commands">
+<h2>Summary of commands<a class="headerlink" href="#summary-of-commands" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="67%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">command</span> <span class="pre">&gt;</span> <span class="pre">file</span></tt></td>
+<td>redirect standard output to a file</td>
+</tr>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">command</span> <span class="pre">&gt;&gt;</span> <span class="pre">file</span></tt></td>
+<td>append standard output to a file</td>
+</tr>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">command</span> <span class="pre">&lt;</span> <span class="pre">file</span></tt></td>
+<td>redirect standard input from a file</td>
+</tr>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">command1</span> <span class="pre">|</span> <span class="pre">command2</span></tt></td>
+<td>pipe the output of <tt class="docutils literal"><span class="pre">command1</span></tt> to the input of <tt class="docutils literal"><span class="pre">command2</span></tt></td>
+</tr>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">cat</span> <span class="pre">file1</span> <span class="pre">file2</span> <span class="pre">&gt;</span> <span class="pre">file0</span></tt></td>
+<td>concatenate <tt class="docutils literal"><span class="pre">file1</span></tt> and <tt class="docutils literal"><span class="pre">file2</span></tt> to <tt class="docutils literal"><span class="pre">file0</span></tt></td>
+</tr>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">sort</span></tt></td>
+<td>sort data</td>
+</tr>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">who</span></tt></td>
+<td>list users currently logged in</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Part 3</a><ul>
+<li><a class="reference internal" href="#redirection">Redirection</a></li>
+<li><a class="reference internal" href="#redirecting-the-output">Redirecting the Output</a></li>
+<li><a class="reference internal" href="#redirecting-the-input">Redirecting the Input</a></li>
+<li><a class="reference internal" href="#pipes">Pipes</a></li>
+<li><a class="reference internal" href="#summary-of-commands">Summary of commands</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="part-2.html"
+                        title="previous chapter">Part 2</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../../_sources/pages/basic/part-3.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="part-2.html" title="Part 2"
+             >previous</a> |</li>
+        <li><a href="../../index.html">Unix Tutorial</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>
