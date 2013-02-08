@@ -4,7 +4,7 @@ Unix Tutorial
 This is the source code.  To see the actual tutorial point your browser [HERE](http://smutch.github.com/UnixTutorial).
 
 Working with the source
-=======================
+-----------------------
 
 To work with the source you must have Python and Sphinx installed.
 
@@ -25,7 +25,7 @@ After that you should be good to go.  Build the site with `make html` and clean 
 
 
 Using the `chrome_watcher.rb` script
-====================================
+------------------------------------
 
 This script is courtesy of [this article](http://brettterpstra.com/2011/03/07/watch-for-file-changes-and-refresh-your-browser-automatically/) by Brett Terpstra.  It's **very** useful when developing the source.  Try out the following in the `build_html` directory:
 
