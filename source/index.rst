@@ -12,7 +12,7 @@ These are the course notes for the **Basic and Advanced Unix** sessions of the
 
 For an idea of what is included in each of the **basic** and **advanced**
 sections, see the contents listings below.  A pdf version of this tutorial can
-be found `here </_static/unix_tutorial.pdf>`_.
+be found `here <_static/unix_tutorial.pdf>`_.
 
 These notes are a shameless (in some places barely altered) reworking of the
 `Unix Tutorial <http://www.ee.surrey.ac.uk/Teaching/Unix/>`_ by M. Stonebank
