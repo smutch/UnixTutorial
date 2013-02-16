@@ -10,13 +10,13 @@ To work with the source you must have Python and Sphinx installed.
 
 First clone the master branch of this repo:
 
-```console
+```bash
 git clone git@github.com:smutch/UnixTutorial.git
 ```
 
 Then re-clone the gh-pages branch of the repo into the directory build\_html:
 
-```console
+```bash
 cd UnixTutorial
 git clone -b gh-pages git@github.com:smutch/UnixTutorial.git build_html
 ```
@@ -29,7 +29,7 @@ Using the `chrome_watcher.rb` script
 
 This script is courtesy of [this article](http://brettterpstra.com/2011/03/07/watch-for-file-changes-and-refresh-your-browser-automatically/) by Brett Terpstra.  It's **very** useful when developing the source.  Try out the following in the `build_html` directory:
 
-```console
+```bash
 python -m SimpleHTTPServer 8020 &
 open -a Google\ Chrome http://localhost:8020/index.html
 cd ..
