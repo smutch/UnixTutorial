@@ -28,7 +28,7 @@ Now, ``cd`` to your ``unix_tutorial`` directory. ::
 
     % cd ~/unix_tutorial
 
-Then at the Unix prompt, type: ::
+Then at the Unix prompt, type::
 
     % cp my_first_file.txt my_first_file.bu
 
@@ -58,7 +58,7 @@ directory, but giving it a different name.
 
 We are now going to move the file ``my_first_file.bu`` to your backup directory.
 
-First, change directories to your ``unix_tutorial`` directory (using the ``cd`` command). Then, inside the ``unix_tutorial`` directory, type: ::
+First, change directories to your ``unix_tutorial`` directory (using the ``cd`` command). Then, inside the ``unix_tutorial`` directory, type::
 
     % mv my_first_file.bu backups/
 
@@ -74,12 +74,12 @@ Removing files and directories
 To delete (remove) a file, use the ``rm`` command. As an example, we are
 going to create a copy of the ``my_first_file.txt`` file then delete it.
 
-Inside your ``unix_tutorial`` directory, type: ::
+Inside your ``unix_tutorial`` directory, type::
 
     % cp my_first_file.txt tempfile.txt
     % ls
 
-You should now see both ``my_first_file.txt`` and ``tempfile.txt`` listed.  Next type: ::
+You should now see both ``my_first_file.txt`` and ``tempfile.txt`` listed.  Next type::
 
     % rm tempfile.txt
     % ls
@@ -107,7 +107,7 @@ Before you start the next section, you may like to clear the terminal
 window of the previous commands so the output of the following commands
 can be clearly understood.
 
-At the prompt, type: ::
+At the prompt, type::
 
     % clear
 
@@ -133,7 +133,7 @@ have missed, however, on older systems this may not be possible!
 ~~~~~~~~
 
 The command ``less`` writes the contents of a file onto the screen a page at a
-time. Type: ::
+time. Type::
 
     % less my_first_file.txt
 
@@ -156,11 +156,11 @@ Key        Action
 
 The ``head`` command writes the first ten lines of a file to the screen.
 
-First clear the screen then type: ::
+First clear the screen then type::
 
     % head my_first_file.txt
 
-Then type: ::
+Then type::
 
     % head -5 my_first_file.txt
 
@@ -172,7 +172,7 @@ What difference did the ``-5`` option do to the head command?
 
 The ``tail`` command writes the last ten lines of a file to the screen.
 
-Clear the screen and type: ::
+Clear the screen and type::
 
     % tail my_first_file.txt
 
@@ -190,7 +190,7 @@ Simple searching using ``less``
 
 Using ``less``, you can search though a text file for a keyword (or *pattern*).
 For example, to search through ``my_first_file.txt`` for the word "science",
-type: ::
+type::
 
     % less my_first_file.txt
 
@@ -208,13 +208,13 @@ the next occurrence of the word.
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ``grep`` is one of many standard Unix utilities. It searches files for
-specified words or patterns. First clear the screen, then type: ::
+specified words or patterns. First clear the screen, then type::
 
     % grep science my_first_file.txt
 
 and ``grep`` will display each line containing the word "science"... *Or has it?*
 
-Try: ::
+Try::
 
     % grep Science my_first_file.txt
 
@@ -242,7 +242,7 @@ Option   Result
 
 Try some of them and see the different results. Don't forget, you can
 use more than one option at a time, for example, the number of lines
-without the words "science" or "Science" is: ::
+without the words "science" or "Science" is::
 
     % grep -ivc science my_first_file.txt
 
@@ -252,11 +252,11 @@ without the words "science" or "Science" is: ::
 ~~~~~~~~~~~~~~~~~~~
 
 A handy little utility is the ``wc`` command, short for word count. To do a
-word count on ``my_first_file.txt``, type: ::
+word count on ``my_first_file.txt``, type::
 
     % wc -w my_first_file.txt
 
-To find out how many lines the file has, type: ::
+To find out how many lines the file has, type::
 
     % wc -l my_first_file.txt
 
