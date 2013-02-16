@@ -3,7 +3,7 @@
 Part 2
 ======
 
-Other useful UNIX commands  
+Other useful Unix commands  
 ----------------------------
 
 df

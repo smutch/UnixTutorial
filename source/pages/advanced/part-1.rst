@@ -148,11 +148,11 @@ associated PID and status, type: ::
     % ps
 
 A process may be in the foreground, in the background, or be suspended.
-In general the shell does not return the UNIX prompt until the current
+In general the shell does not return the Unix prompt until the current
 process has finished executing.
 
 Some processes take a long time to run and hold up the terminal.
-Backgrounding a long process has the effect that the UNIX prompt is
+Backgrounding a long process has the effect that the Unix prompt is
 returned immediately, and other tasks can be carried out while the
 original process continues executing.
 

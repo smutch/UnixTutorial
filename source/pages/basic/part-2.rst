@@ -17,8 +17,9 @@ What we are going to do now is download a file from the internet, save it to our
 our ``backups`` directory (which we created in :ref:`Exercise 1a
 <exercise-1a>`).
 
-First point your web browser to `this link <dummy>`_ and save the file using
-"*Save as..*" to your ``unix_tutorial`` directory.
+First point your web browser to `this link (my_first_file.txt)
+</_static/my_first_file.txt>`_ and save the file using "*Save as..*" to your
+``unix_tutorial`` directory.
 
 .. todo::
 

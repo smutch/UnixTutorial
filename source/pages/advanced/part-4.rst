@@ -3,7 +3,7 @@
 Part 4
 ======
 
-UNIX Variables
+Unix Variables
 --------------
 
 Variables are a way of passing information from the shell to programs
@@ -12,7 +12,7 @@ variables and if they are found will use the values stored. Some are set
 by the system, others by you, yet others by the shell, or any program
 that loads another program.
 
-Standard UNIX variables are split into two categories, environment
+Standard Unix variables are split into two categories, environment
 variables and shell variables. In broad terms, shell variables apply
 only to the current instance of the shell and are used to set short-term
 working conditions; environment variables have a farther reaching
@@ -93,7 +93,7 @@ either automatically causes the other to be changed.
 Using and setting variables
 ---------------------------
 
-Each time you login to a UNIX host, the system looks in your home
+Each time you login to a Unix host, the system looks in your home
 directory for initialisation files. Information in these files is used
 to set up your working environment. The C and TC shells uses two files
 called .login and .cshrc (note that both file names begin with a dot).
