@@ -11,7 +11,8 @@ These are the course notes for the **Basic and Advanced Unix** sessions of the
 <http://www.smp.uq.edu.au/anitaworkshop2013/?page_id=30>`_.
 
 For an idea of what is included in each of the **basic** and **advanced**
-sections, see the contents listings below.
+sections, see the contents listings below.  A pdf version of this tutorial can
+be found `here </_static/unix_tutorial.pdf>`_.
 
 These notes are a shameless (in some places barely altered) reworking of the
 `Unix Tutorial <http://www.ee.surrey.ac.uk/Teaching/Unix/>`_ by M. Stonebank
