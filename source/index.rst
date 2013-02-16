@@ -41,6 +41,5 @@ Advanced Unix
 
    pages/advanced/*
 
-To come...
 
 
