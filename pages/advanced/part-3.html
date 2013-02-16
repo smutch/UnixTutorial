@@ -1,0 +1,206 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Part 3 &mdash; Unix Tutorial</title>
+    
+    <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Unix Tutorial" href="../../index.html" />
+    <link rel="next" title="Part 4" href="part-4.html" />
+    <link rel="prev" title="Part 2" href="part-2.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="part-4.html" title="Part 4"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="part-2.html" title="Part 2"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">Unix Tutorial</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="part-3">
+<h1>Part 3<a class="headerlink" href="#part-3" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="simple-calculations-in-unix-using-awk">
+<h2>Simple calculations in Unix using awk<a class="headerlink" href="#simple-calculations-in-unix-using-awk" title="Permalink to this headline">¶</a></h2>
+<p><tt class="docutils literal"><span class="pre">awk</span></tt> is a powerful Unix command useful for performing line-by-line operations on ascii files (eg. tables of data).  It can be used in two modes: command-line-mode and as a scripting language.  To get an idea of how it works, let&#8217;s look at the command-line usage first.  Later we will create some simple <tt class="docutils literal"><span class="pre">awk</span></tt> scripts.</p>
+<div class="section" id="awk-on-the-command-line">
+<h3><tt class="docutils literal"><span class="pre">awk</span></tt> on the command line<a class="headerlink" href="#awk-on-the-command-line" title="Permalink to this headline">¶</a></h3>
+<p>The general format of a call to <tt class="docutils literal"><span class="pre">awk</span></tt> is as follows:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">%</span> awk <span class="s1">&#39;PROGRAM&#39;</span> file
+</pre></div>
+</div>
+<p>Where <tt class="docutils literal"><span class="pre">PROGRAM</span></tt> denotes what will be executed on each line and <tt class="docutils literal"><span class="pre">file</span></tt> is the file to be operated-on in a line-by-line fashion.  The simplest program just prints the contents of the file:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">%</span> awk <span class="s1">&#39;print&#39;</span> file
+</pre></div>
+</div>
+<p><tt class="docutils literal"><span class="pre">awk</span></tt> parses each line into a series of columns.  Each column is referred to as <tt class="docutils literal"><span class="pre">$1</span></tt>, <tt class="docutils literal"><span class="pre">$2</span></tt>, <tt class="docutils literal"><span class="pre">$3</span></tt>, etc.  The entire line is specified as <tt class="docutils literal"><span class="pre">$0</span></tt>.  So, another way to print the whole file is:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">%</span> awk <span class="s1">&#39;print $0&#39;</span> file
+</pre></div>
+</div>
+<p>If you want to just print the first and 3rd columns though, you can do that with:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">%</span> awk <span class="s1">&#39;print $1,$3&#39;</span> file
+</pre></div>
+</div>
+<p>The real power of <tt class="docutils literal"><span class="pre">awk</span></tt> emerges when you start using it&#8217;s pattern-matching and column operation functionality.  For instance, assume you want to find all the files in your how directory owned by user <tt class="docutils literal"><span class="pre">user_name</span></tt>.  You could run:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">%</span> ls -l | awk <span class="s1">&#39;/user_name/ {print $9}&#39;</span>
+</pre></div>
+</div>
+<p>Here, <tt class="docutils literal"><span class="pre">/user_name/</span></tt> is a match filter.  For every line that contains the text between the <tt class="docutils literal"><span class="pre">/</span></tt>&#8216;s, the code between the <tt class="docutils literal"><span class="pre">{}</span></tt>&#8216;s will be executed.  You can have more than one match filter:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">%</span> man ls | awk <span class="s1">&#39;/-A/ {print $0} /-f/ {print $0}&#39;</span>
+</pre></div>
+</div>
+<p>Working with our sample data files, say we want to find all the galaxies marked as QSOs in the first file:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">%</span> awk <span class="s1">&#39;/QSO/ {print $0}&#39;</span> data_file_1.txt
+</pre></div>
+</div>
+<p>Perhaps we want to keep the header information at the top:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">%</span> awk <span class="s1">&#39;/#/ {print $0} /QSO/ {print $0}&#39;</span> data_file_1.txt
+</pre></div>
+</div>
+<p><tt class="docutils literal"><span class="pre">awk</span></tt> allows for code to be executed before-and-after the line-by-line processing:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">%</span> awk <span class="s1">&#39;BEGIN {print &quot;# Below is a list of QSOs&quot;} /#/ {print $0} /QSO/ {print $0} END{print &quot;# Above is a list of QSOs&quot;}&#39;</span> data_file_1.txt
+</pre></div>
+</div>
+<p><tt class="docutils literal"><span class="pre">awk</span></tt> can operate on multiple files:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">%</span> awk <span class="s1">&#39;BEGIN {print &quot;# Below is a list of QSOs&quot;} /#/ {print $0} /QSO/ {print $0} END{print &quot;# Above is a list of QSOs&quot;}&#39;</span> data_file_1.txt data_file_2.txt
+</pre></div>
+</div>
+<p>Now, what if we only want the first header line?  Let&#8217;s stretch <tt class="docutils literal"><span class="pre">awk</span></tt>&#8216;s abilities a bit more:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">%</span> awk <span class="s1">&#39;BEGIN {print &quot;# Below is a list of QSOs&quot;;i=0} /#/ {i=i+1;if(i==1) print $0} /QSO/ {print $0} END{print &quot;# Above is a list of QSOs&quot;}&#39;</span> data_file_1.txt data_file_2.txt
+</pre></div>
+</div>
+<p>Let&#8217;s make a list of all the R-band magnitudes in the first file:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">%</span> awk <span class="s1">&#39;BEGIN {print &quot;# Below is a list of galaxies&quot;;i=0} /#/ {i=i+1;if(i==4) print &quot;# &quot;$6} ! /#/{print $9}&#39;</span> data_file_1.txt
+</pre></div>
+</div>
+<p>Suppose there&#8217;s a calibration error and we want to remove 0.01 from all magnitudes less than 21.  <tt class="docutils literal"><span class="pre">awk</span></tt> allows us to perform conditionals and mathematical expressions:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">%</span> awk <span class="s1">&#39;BEGIN {print &quot;# Below is a list of galaxies&quot;;i=0} /#/ {i=i+1;if(i==4) print &quot;# &quot;$6} ! /#/{if($9&lt;21.) print $9-0.01; else print $9}&#39;</span> data_file_1.txt
+</pre></div>
+</div>
+</div>
+<div class="section" id="awk-as-a-scripting-language">
+<h3><tt class="docutils literal"><span class="pre">awk</span></tt> as a scripting language<a class="headerlink" href="#awk-as-a-scripting-language" title="Permalink to this headline">¶</a></h3>
+<p><tt class="docutils literal"><span class="pre">awk</span></tt> can be used as a scripting language much like a shell script.  Start the script with a line declaring that the file will run <tt class="docutils literal"><span class="pre">awk</span></tt> in <strong>filter</strong> mode.  Turning our last example into a script you would have:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">#</span>!/usr/bin/awk -f
+<span class="go">BEGIN {</span>
+<span class="go">    print &quot;# Below is a list of galaxies&quot;;</span>
+<span class="go">    i=0</span>
+<span class="go">}</span>
+
+<span class="go">/#/ {</span>
+<span class="go">    i=i+1;</span>
+<span class="go">    if(i==4) print &quot;# &quot;$6</span>
+<span class="go">}</span>
+
+<span class="go">! /#/{</span>
+<span class="go">    if($9&lt;21.) print $9-0.01;</span>
+<span class="go">    else       print $9</span>
+<span class="go">}</span>
+</pre></div>
+</div>
+<p>Experiment with <tt class="docutils literal"><span class="pre">awk</span></tt> it has a lot more functionality than what is shown here and there are many good tutorials online.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Part 3</a><ul>
+<li><a class="reference internal" href="#simple-calculations-in-unix-using-awk">Simple calculations in Unix using awk</a><ul>
+<li><a class="reference internal" href="#awk-on-the-command-line"><tt class="docutils literal"><span class="pre">awk</span></tt> on the command line</a></li>
+<li><a class="reference internal" href="#awk-as-a-scripting-language"><tt class="docutils literal"><span class="pre">awk</span></tt> as a scripting language</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="part-2.html"
+                        title="previous chapter">Part 2</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="part-4.html"
+                        title="next chapter">Part 4</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../../_sources/pages/advanced/part-3.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="part-4.html" title="Part 4"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="part-2.html" title="Part 2"
+             >previous</a> |</li>
+        <li><a href="../../index.html">Unix Tutorial</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

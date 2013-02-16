@@ -12,6 +12,7 @@
     
     <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -27,6 +28,7 @@
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="top" title="Unix Tutorial" href="../../index.html" />
+    <link rel="next" title="Some data to work with" href="../advanced/part-0.html" />
     <link rel="prev" title="Part 3" href="part-3.html" /> 
   </head>
   <body>
@@ -36,6 +38,9 @@
         <li class="right" style="margin-right: 10px">
           <a href="../../genindex.html" title="General Index"
              accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../advanced/part-0.html" title="Some data to work with"
+             accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="part-3.html" title="Part 3"
              accesskey="P">previous</a> |</li>
@@ -97,10 +102,10 @@ that directory.</p>
 So the rules and conventions for naming files apply also to directories.</p>
 </div>
 <div class="section" id="getting-help">
-<h2>Getting Help<a class="headerlink" href="#getting-help" title="Permalink to this headline">¶</a></h2>
+<span id="id1"></span><h2>Getting Help<a class="headerlink" href="#getting-help" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="on-line-manuals">
 <h3>On-line Manuals<a class="headerlink" href="#on-line-manuals" title="Permalink to this headline">¶</a></h3>
-<p>There are on-line manuals which gives information about most commands.
+<p>There are inbuilt manuals which gives information about most commands.
 The manual pages tell you which flags a particular command can take,
 and how each flag modifies the behaviour of the command. Use the <tt class="docutils literal"><span class="pre">man</span></tt>
 command to read the manual page for a particular command.</p>
@@ -118,7 +123,7 @@ about flags etc.</p>
 <div class="section" id="apropos">
 <h3><tt class="docutils literal"><span class="pre">apropos</span></tt><a class="headerlink" href="#apropos" title="Permalink to this headline">¶</a></h3>
 <p>When you are not sure of the exact name of a command you can try using the
-<tt class="docutils literal"><span class="pre">apropos</span></tt> command.</p>
+<tt class="docutils literal"><span class="pre">apropos</span></tt> command:</p>
 <div class="highlight-console"><div class="highlight"><pre><span class="gp">%</span> apropos keyword
 </pre></div>
 </div>
@@ -133,23 +138,28 @@ example, try typing:</p>
 <h2>Summary of commands<a class="headerlink" href="#summary-of-commands" title="Permalink to this headline">¶</a></h2>
 <table border="1" class="docutils">
 <colgroup>
-<col width="32%" />
-<col width="68%" />
+<col width="29%" />
+<col width="71%" />
 </colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Command</th>
+<th class="head">Description</th>
+</tr>
+</thead>
 <tbody valign="top">
-<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">*</span></tt></td>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">*</span></tt></td>
 <td>match any number of characters</td>
 </tr>
-<tr class="row-even"><td><tt class="docutils literal"><span class="pre">?</span></tt></td>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">?</span></tt></td>
 <td>match one character</td>
 </tr>
-<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">man</span> <span class="pre">command</span></tt></td>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">man</span> <span class="pre">command</span></tt></td>
 <td>read the online manual page for a command</td>
 </tr>
-<tr class="row-even"><td><tt class="docutils literal"><span class="pre">whatis</span> <span class="pre">command</span></tt></td>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">whatis</span> <span class="pre">command</span></tt></td>
 <td>brief description of a command</td>
 </tr>
-<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">apropos</span> <span class="pre">keyword</span></tt></td>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">apropos</span> <span class="pre">keyword</span></tt></td>
 <td>match commands with <tt class="docutils literal"><span class="pre">keyword</span></tt> in their man pages</td>
 </tr>
 </tbody>
@@ -184,6 +194,9 @@ example, try typing:</p>
   <h4>Previous topic</h4>
   <p class="topless"><a href="part-3.html"
                         title="previous chapter">Part 3</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../advanced/part-0.html"
+                        title="next chapter">Some data to work with</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="../../_sources/pages/basic/part-4.txt"
@@ -212,6 +225,9 @@ example, try typing:</p>
         <li class="right" style="margin-right: 10px">
           <a href="../../genindex.html" title="General Index"
              >index</a></li>
+        <li class="right" >
+          <a href="../advanced/part-0.html" title="Some data to work with"
+             >next</a> |</li>
         <li class="right" >
           <a href="part-3.html" title="Part 3"
              >previous</a> |</li>

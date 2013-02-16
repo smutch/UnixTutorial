@@ -12,6 +12,7 @@
     
     <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -59,13 +60,12 @@
 <div class="section" id="cp-copy">
 <h3><tt class="docutils literal"><span class="pre">cp</span></tt> (copy)<a class="headerlink" href="#cp-copy" title="Permalink to this headline">¶</a></h3>
 <p>The command <tt class="docutils literal"><span class="pre">cp</span> <span class="pre">file1</span> <span class="pre">file2</span></tt> will make a copy of <tt class="docutils literal"><span class="pre">file1</span></tt> in the
-current working directory with then name <tt class="docutils literal"><span class="pre">file2</span></tt>.</p>
-<p>What we are going to do now is download a file from the internet, save it to
-our <tt class="docutils literal"><span class="pre">unix_tutorial</span></tt> directory and then use the <tt class="docutils literal"><span class="pre">cp</span></tt> command to copy that
-file to our <tt class="docutils literal"><span class="pre">backups</span></tt> directory (which we created in <cite>exercise 1a
-&lt;exercise1a&gt;</cite>).</p>
-<p>First point your web browser to <a class="reference external" href="dummy">this link</a> and save this file using
-&#8220;<em>Save as..</em>&#8221; to your <tt class="docutils literal"><span class="pre">unix_tutorial</span></tt> directory.</p>
+current working directory with the name <tt class="docutils literal"><span class="pre">file2</span></tt>.</p>
+<p>What we are going to do now is download a file from the internet, save it to our
+<tt class="docutils literal"><span class="pre">unix_tutorial</span></tt> directory and then use the <tt class="docutils literal"><span class="pre">cp</span></tt> command to copy that file to
+our <tt class="docutils literal"><span class="pre">backups</span></tt> directory (which we created in <a class="reference internal" href="part-1.html#exercise-1a"><em>Exercise 1a</em></a>).</p>
+<p>First point your web browser to <a class="reference external" href="/_static/my_first_file.txt">this link (my_first_file.txt)</a> and save the file using &#8220;<em>Save as..</em>&#8221; to your
+<tt class="docutils literal"><span class="pre">unix_tutorial</span></tt> directory.</p>
 <p>Now, <tt class="docutils literal"><span class="pre">cd</span></tt> to your <tt class="docutils literal"><span class="pre">unix_tutorial</span></tt> directory.</p>
 <div class="highlight-console"><div class="highlight"><pre><span class="gp">%</span> <span class="nb">cd</span> ~/unix_tutorial
 </pre></div>
@@ -208,7 +208,6 @@ file than <tt class="docutils literal"><span class="pre">cat</span></tt>.  Other
 <div class="highlight-console"><div class="highlight"><pre><span class="gp">%</span> tail my_first_file.txt
 </pre></div>
 </div>
-<p>How can you view the last 15 lines of the file?</p>
 <div class="topic">
 <p class="topic-title first">Exercise 2b</p>
 <p>Try using the tail command to view the last 15 lines of <tt class="docutils literal"><span class="pre">my_first_file.txt</span></tt>.</p>
@@ -303,38 +302,43 @@ word count on <tt class="docutils literal"><span class="pre">my_first_file.txt</
 <h2>Summary of commands<a class="headerlink" href="#summary-of-commands" title="Permalink to this headline">¶</a></h2>
 <table border="1" class="docutils">
 <colgroup>
-<col width="35%" />
-<col width="65%" />
+<col width="34%" />
+<col width="66%" />
 </colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Command</th>
+<th class="head">Description</th>
+</tr>
+</thead>
 <tbody valign="top">
-<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">cp</span> <span class="pre">file1</span> <span class="pre">file2</span></tt></td>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">cp</span> <span class="pre">file1</span> <span class="pre">file2</span></tt></td>
 <td>copy <tt class="docutils literal"><span class="pre">file1</span></tt> and call it <tt class="docutils literal"><span class="pre">file2</span></tt></td>
 </tr>
-<tr class="row-even"><td><tt class="docutils literal"><span class="pre">mv</span> <span class="pre">file1</span> <span class="pre">file2</span></tt></td>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">mv</span> <span class="pre">file1</span> <span class="pre">file2</span></tt></td>
 <td>move or rename <tt class="docutils literal"><span class="pre">file1</span></tt> to <tt class="docutils literal"><span class="pre">file2</span></tt></td>
 </tr>
-<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">rm</span> <span class="pre">file</span></tt></td>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">rm</span> <span class="pre">file</span></tt></td>
 <td>remove a file</td>
 </tr>
-<tr class="row-even"><td><tt class="docutils literal"><span class="pre">rmdir</span> <span class="pre">directory</span></tt></td>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">rmdir</span> <span class="pre">directory</span></tt></td>
 <td>remove a directory</td>
 </tr>
-<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">cat</span> <span class="pre">file</span></tt></td>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">cat</span> <span class="pre">file</span></tt></td>
 <td>display a file</td>
 </tr>
-<tr class="row-even"><td><tt class="docutils literal"><span class="pre">more</span> <span class="pre">file</span></tt></td>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">more</span> <span class="pre">file</span></tt></td>
 <td>display a file a page at a time</td>
 </tr>
-<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">head</span> <span class="pre">file</span></tt></td>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">head</span> <span class="pre">file</span></tt></td>
 <td>display the first few lines of a file</td>
 </tr>
-<tr class="row-even"><td><tt class="docutils literal"><span class="pre">tail</span> <span class="pre">file</span></tt></td>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">tail</span> <span class="pre">file</span></tt></td>
 <td>display the last few lines of a file</td>
 </tr>
-<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">grep</span> <span class="pre">'keyword'</span> <span class="pre">file</span></tt></td>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">grep</span> <span class="pre">'keyword'</span> <span class="pre">file</span></tt></td>
 <td>search a file for keywords</td>
 </tr>
-<tr class="row-even"><td><tt class="docutils literal"><span class="pre">wc</span> <span class="pre">file</span></tt></td>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">wc</span> <span class="pre">file</span></tt></td>
 <td>count number of lines/words/characters in file</td>
 </tr>
 </tbody>

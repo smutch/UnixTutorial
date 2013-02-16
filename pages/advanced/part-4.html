@@ -1,0 +1,294 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Part 4 &mdash; Unix Tutorial</title>
+    
+    <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Unix Tutorial" href="../../index.html" />
+    <link rel="prev" title="Part 3" href="part-3.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="part-3.html" title="Part 3"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">Unix Tutorial</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="part-4">
+<h1>Part 4<a class="headerlink" href="#part-4" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="unix-variables">
+<h2>Unix Variables<a class="headerlink" href="#unix-variables" title="Permalink to this headline">¶</a></h2>
+<p>Variables are a way of passing information from the shell to programs
+when you run them. Programs look &#8220;in the environment&#8221; for particular
+variables and if they are found will use the values stored. Some are set
+by the system, others by you, yet others by the shell, or any program
+that loads another program.</p>
+<p>Standard Unix variables are split into two categories, environment
+variables and shell variables. In broad terms, shell variables apply
+only to the current instance of the shell and are used to set short-term
+working conditions; environment variables have a farther reaching
+significance, and those set at login are valid for the duration of the
+session. By convention, environment variables have UPPER CASE and shell
+variables have lower case names.</p>
+</div>
+<div class="section" id="environment-variables">
+<h2>Environment Variables<a class="headerlink" href="#environment-variables" title="Permalink to this headline">¶</a></h2>
+<p>An example of an environment variable is the OSTYPE variable. The value
+of this is the current operating system you are using. Type:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">%</span> <span class="nb">echo</span> <span class="nv">$OSTYPE</span>
+</pre></div>
+</div>
+<p>More examples of environment variables are:</p>
+<ul class="simple">
+<li>USER (your login name)</li>
+<li>HOME (the path name of your home directory)</li>
+<li>HOST (the name of the computer you are using)</li>
+<li>ARCH (the architecture of the computers processor)</li>
+<li>DISPLAY (the name of the computer screen to display X windows)</li>
+<li>PRINTER (the default printer to send print jobs)</li>
+<li>PATH (the directories the shell should search to find a command)</li>
+</ul>
+<div class="section" id="finding-out-the-current-values-of-these-variables">
+<h3>Finding out the current values of these variables.<a class="headerlink" href="#finding-out-the-current-values-of-these-variables" title="Permalink to this headline">¶</a></h3>
+<p>ENVIRONMENT variables are set using the <tt class="docutils literal"><span class="pre">setenv</span></tt> command, displayed using
+the <tt class="docutils literal"><span class="pre">printenv</span></tt> or <tt class="docutils literal"><span class="pre">env</span></tt> commands, and unset using the <tt class="docutils literal"><span class="pre">unsetenv</span></tt> command.</p>
+<p>To show all values of these variables, type:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">%</span> printenv | less
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="shell-variables">
+<h2>Shell Variables<a class="headerlink" href="#shell-variables" title="Permalink to this headline">¶</a></h2>
+<p>An example of a shell variable is the history variable. The value of
+this is how many shell commands to save, allow the user to scroll back
+through all the commands they have previously entered. Type:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">%</span> <span class="nb">echo</span> <span class="nv">$history</span>
+</pre></div>
+</div>
+<p>More examples of shell variables are:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">cwd</span></tt>    (your current working directory)</li>
+<li><tt class="docutils literal"><span class="pre">home</span></tt>   (the path name of your home directory)</li>
+<li><tt class="docutils literal"><span class="pre">path</span></tt>   (the directories the shell should search to find a command)</li>
+<li><tt class="docutils literal"><span class="pre">prompt</span></tt> (the text string used to prompt for interactive commands shell your login shell)</li>
+</ul>
+<div class="section" id="id1">
+<h3>Finding out the current values of these variables.<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>SHELL variables are both set and displayed using the set command. They
+can be unset by using the unset command.</p>
+<p>To show all values of these variables, type:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">%</span> <span class="nb">set</span> | less
+</pre></div>
+</div>
+</div>
+<div class="section" id="so-what-is-the-difference-between-path-and-path">
+<h3>So what is the difference between <tt class="docutils literal"><span class="pre">PATH</span></tt> and <tt class="docutils literal"><span class="pre">path</span></tt> ?<a class="headerlink" href="#so-what-is-the-difference-between-path-and-path" title="Permalink to this headline">¶</a></h3>
+<p>In general, environment and shell variables that have the same name
+(apart from the case) are distinct and independent, except for possibly
+having the same initial values. There are, however, exceptions.</p>
+<p>Each time the shell variables <tt class="docutils literal"><span class="pre">home</span></tt>, <tt class="docutils literal"><span class="pre">user</span></tt> and <tt class="docutils literal"><span class="pre">term</span></tt> are changed, the
+corresponding environment variables <tt class="docutils literal"><span class="pre">HOME</span></tt>, <tt class="docutils literal"><span class="pre">USER</span></tt> and <tt class="docutils literal"><span class="pre">TERM</span></tt> receive the same
+values. However, altering the environment variables has no effect on the
+corresponding shell variables.</p>
+<p><tt class="docutils literal"><span class="pre">PATH</span></tt> and <tt class="docutils literal"><span class="pre">path</span></tt> specify directories to search for commands and programs.
+Both variables always represent the same directory list, and altering
+either automatically causes the other to be changed.</p>
+</div>
+</div>
+<div class="section" id="using-and-setting-variables">
+<h2>Using and setting variables<a class="headerlink" href="#using-and-setting-variables" title="Permalink to this headline">¶</a></h2>
+<p>Each time you login to a Unix host, the system looks in your home
+directory for initialisation files. Information in these files is used
+to set up your working environment. The C and TC shells uses two files
+called .login and .cshrc (note that both file names begin with a dot).</p>
+<p>At login the C shell first reads <strong>.cshrc</strong> followed by <strong>.login</strong></p>
+<p><strong>.login</strong> is to set conditions which will apply to the whole session
+and to perform actions that are relevant only at login.</p>
+<p><strong>.cshrc</strong> is used to set conditions and perform actions specific to the
+shell and to each invocation of it.</p>
+<p>The guidelines are to set ENVIRONMENT variables in the <strong>.login</strong> file
+and SHELL variables in the <strong>.cshrc</strong> file.</p>
+<p><strong>WARNING:</strong> NEVER put commands that run graphical displays (e.g. a web
+browser) in your .cshrc or .login file.</p>
+</div>
+<div class="section" id="setting-shell-variables-in-the-cshrc-file">
+<h2>Setting shell variables in the .cshrc file<a class="headerlink" href="#setting-shell-variables-in-the-cshrc-file" title="Permalink to this headline">¶</a></h2>
+<p>For example, to change the number of shell commands saved in the history
+list, you need to set the shell variable history. It is set to 100 by
+default, but you can increase this if you wish.</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">%</span> <span class="nb">set history</span> <span class="o">=</span> 200
+</pre></div>
+</div>
+<p>Check this has worked by typing:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">%</span> <span class="nb">echo</span> <span class="nv">$history</span>
+</pre></div>
+</div>
+<p>However, this has only set the variable for the lifetime of the current
+shell. If you open a new xterm window, it will only have the default
+history value set. To PERMANENTLY set the value of history, you will
+need to add the set command to the .cshrc file.</p>
+<p>First open the <strong>.cshrc</strong> file in a text editor. An easy, user-friendly
+editor to use is <tt class="docutils literal"><span class="pre">nano</span></tt>, but other ones include <tt class="docutils literal"><span class="pre">emacs</span></tt> or <tt class="docutils literal"><span class="pre">nedit</span></tt>.</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">%</span> nano ~/.cshrc
+</pre></div>
+</div>
+<p>Add the following line AFTER the list of other commands.</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="go">set history = 200</span>
+</pre></div>
+</div>
+<p>Save the file and force the shell to reread its .cshrc file buy using
+the shell source command.</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">%</span> <span class="nb">source</span> .cshrc
+</pre></div>
+</div>
+<p>Check this has worked by typing:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">%</span> <span class="nb">echo</span> <span class="nv">$history</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="setting-the-path">
+<h2>Setting the path<a class="headerlink" href="#setting-the-path" title="Permalink to this headline">¶</a></h2>
+<p>When you type a command, your path (or PATH) variable defines in which
+directories the shell will look to find the command you typed. If the
+system returns a message saying &#8220;command: Command not found&#8221;, this
+indicates that either the command doesn&#8217;t exist at all on the system or
+it is simply not in your path.</p>
+<p>Let&#8217;s create an executable in a directory called <tt class="docutils literal"><span class="pre">test_path</span></tt>:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">%</span> mkdir test_path
+<span class="gp">%</span> <span class="nb">echo</span> <span class="c">#!\/bin\/csh    &gt; test_path/siesta</span>
+<span class="gp">%</span> <span class="nb">echo </span>sleep 5        &gt;&gt; test_path/siesta
+<span class="gp">%</span> chmod a+x test_path/siesta
+</pre></div>
+</div>
+<p>If you explicitly give the full path to the program, it will execute &#8216;sleep&#8217; for 5 seconds:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">%</span> ./test_path/siesta
+</pre></div>
+</div>
+<p>But the computer doesn&#8217;t know where it is otherwise:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">%</span> siesta
+<span class="go">siesta: Command not found.</span>
+</pre></div>
+</div>
+<p>For this command to work anywhere without giving the explicit location every time, you
+need to add it to the end of your existing path (the <strong>$path</strong> represents this) by issuing the command:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">%</span> <span class="nb">set </span><span class="nv">path</span> <span class="o">=</span> <span class="o">(</span><span class="nv">$path</span> <span class="nv">$PWD</span>/test_path<span class="o">)</span>
+</pre></div>
+</div>
+<p>Test that this worked by trying to run <tt class="docutils literal"><span class="pre">siesta</span></tt> in any directory other that
+where it is actually located.</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">%</span> <span class="nb">cd</span>; siesta
+</pre></div>
+</div>
+<p><strong>HINT:</strong> You can run multiple commands on one line by separating them
+with a semicolon.</p>
+<p>To add a path PERMANENTLY, place the following line at the end of your <strong>.cshrc</strong> file:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="go">set path = ($path directory_to_the_command)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Part 4</a><ul>
+<li><a class="reference internal" href="#unix-variables">Unix Variables</a></li>
+<li><a class="reference internal" href="#environment-variables">Environment Variables</a><ul>
+<li><a class="reference internal" href="#finding-out-the-current-values-of-these-variables">Finding out the current values of these variables.</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#shell-variables">Shell Variables</a><ul>
+<li><a class="reference internal" href="#id1">Finding out the current values of these variables.</a></li>
+<li><a class="reference internal" href="#so-what-is-the-difference-between-path-and-path">So what is the difference between <tt class="docutils literal"><span class="pre">PATH</span></tt> and <tt class="docutils literal"><span class="pre">path</span></tt> ?</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#using-and-setting-variables">Using and setting variables</a></li>
+<li><a class="reference internal" href="#setting-shell-variables-in-the-cshrc-file">Setting shell variables in the .cshrc file</a></li>
+<li><a class="reference internal" href="#setting-the-path">Setting the path</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="part-3.html"
+                        title="previous chapter">Part 3</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../../_sources/pages/advanced/part-4.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="part-3.html" title="Part 3"
+             >previous</a> |</li>
+        <li><a href="../../index.html">Unix Tutorial</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

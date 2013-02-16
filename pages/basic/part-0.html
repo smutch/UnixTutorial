@@ -12,6 +12,7 @@
     
     <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -58,7 +59,8 @@
 responsible for opening files, dealing with the memory, allocating tasks to the
 processor and creating the underlying interface between the user and the
 machine.</p>
-<p>Unix is made up of three basic components: the kernel <a class="reference internal" href="#the-kernel"><em>kernel</em></a>, <a class="reference internal" href="#the-shell"><em>shell</em></a> and the <a class="reference internal" href="#files-and-processes"><em>files and processes</em></a>.</p>
+<p>Unix is made up of three basic components: the <a class="reference internal" href="#the-kernel"><em>kernel</em></a>,
+the <a class="reference internal" href="#the-shell"><em>shell</em></a> and the <a class="reference internal" href="#files-and-processes"><em>files and processes</em></a>.</p>
 <div class="section" id="the-kernel">
 <span id="id1"></span><h2>The Kernel<a class="headerlink" href="#the-kernel" title="Permalink to this headline">¶</a></h2>
 <p>The kernel is the underlying core of the computer and carries out all of the
@@ -89,8 +91,10 @@ continue to issue new commands while the original one is still running).</p>
 the Bourne SHell (<cite>sh</cite>) and is found on almost every Unix system.  Others
 include:</p>
 <ul class="simple">
-<li>The C SHell (<cite>csh</cite>) and associated TC SHell (<cite>tcsh</cite>)</li>
-<li>The Bourne Again SHell (<cite>bash</cite>) <em>- the default on Mac OS X</em></li>
+<li>The C SHell (<a class="reference external" href="http://en.wikipedia.org/wiki/C_shell">csh</a>) and associated TC
+SHell (<a class="reference external" href="http://www.tcsh.org/Welcome">tcsh</a>)</li>
+<li>The Bourne Again SHell (<a class="reference external" href="http://www.gnu.org/software/bash/">bash</a>) <em>- the
+default on Mac OS X</em></li>
 <li>The Z SHell (<a class="reference external" href="http://zsh.sourceforge.net/">zsh</a>) <em>- my favorite!</em></li>
 </ul>
 <div class="admonition warning">

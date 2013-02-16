@@ -12,6 +12,7 @@
     
     <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -134,7 +135,7 @@ turn, then outputting the text to the file <tt class="docutils literal"><span cl
 </div>
 <p>Piping the output of a command to a file can be extremely useful.  For example,
 imagine that we are running a large script which carries out some complex
-manipulation of our data and takes a long time to complete.  Typically we would
+manipulation of our data, taking a long time to complete.  Typically we would
 setup our script so that it prints out status messages telling us that certain
 tasks have been completed or certain files have been read/written.  By piping
 the output of our script to a file we can record these log messages for future
@@ -180,16 +181,21 @@ keyboard. For example, to sort the list of fruit, type:</p>
 <div class="highlight-console"><div class="highlight"><pre><span class="gp">%</span> who
 </pre></div>
 </div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you are the only person currently logged into the system then try <tt class="docutils literal"><span class="pre">who</span>
+<span class="pre">-a</span></tt> and use this in replace of <tt class="docutils literal"><span class="pre">who</span></tt> below.</p>
+</div>
 <p>One method to get a sorted list of names is to type:</p>
 <div class="highlight-console"><div class="highlight"><pre><span class="gp">%</span> who &gt; names.txt
 <span class="gp">%</span> sort &lt; names.txt
 </pre></div>
 </div>
-<p>This is a bit slow and you have to remember to remove the temporary file
-called names when you have finished. What you really want to do is
-connect the output of the who command directly to the input of the sort
-command. This is exactly what pipes do. The symbol for a pipe is the
-vertical bar (<tt class="docutils literal"><span class="pre">|</span></tt>).  Pipes are one of the most useful features of Unix...</p>
+<p>This is a bit slow and you have to remember to remove the temporary file called
+names when you have finished. What you really want to do is connect the output
+of the <tt class="docutils literal"><span class="pre">who</span></tt> command directly to the input of the sort command. This is
+exactly what pipes do. The symbol for a pipe is the vertical bar (<tt class="docutils literal"><span class="pre">|</span></tt>).  Pipes
+are one of the most useful features of Unix...</p>
 <p>For example, typing:</p>
 <div class="highlight-console"><div class="highlight"><pre><span class="gp">%</span> who | sort
 </pre></div>
@@ -199,12 +205,18 @@ vertical bar (<tt class="docutils literal"><span class="pre">|</span></tt>).  Pi
 <div class="highlight-console"><div class="highlight"><pre><span class="gp">%</span> who | wc -l
 </pre></div>
 </div>
-<p>Pipes can be used to string together multiple commands, making them extremely powerful.  For example, in order to find out out many <strong>other</strong> users (i.e. excluding ourselves) are logged onto the system we could use the following:</p>
+<p>Pipes can be used to string together multiple commands, making them extremely
+powerful.  For example, in order to find out out many <strong>other</strong> users (i.e.
+excluding ourselves) are logged onto the system we could use the following:</p>
 <div class="highlight-console"><div class="highlight"><pre><span class="gp">%</span> who | grep -v <span class="o">[</span>username<span class="o">]</span> | wc -l
 </pre></div>
 </div>
 <p>where <tt class="docutils literal"><span class="pre">[username]</span></tt> should be replaced by your own user name.</p>
-<p>What we have done here is run the <tt class="docutils literal"><span class="pre">who</span></tt> to find out who is logged into the system.  The output has then been piped to the command <tt class="docutils literal"><span class="pre">grep</span></tt> which has <strong>removed</strong> (as a result of the <tt class="docutils literal"><span class="pre">-v</span></tt> flag) all lines containing our username.  Finally, this output has been piped to <tt class="docutils literal"><span class="pre">wc</span></tt> which has counted the number of lines.</p>
+<p>What we have done here is run the <tt class="docutils literal"><span class="pre">who</span></tt> command to find out who is logged into
+the system.  The output has then been piped to the command <tt class="docutils literal"><span class="pre">grep</span></tt> which has
+<strong>removed</strong> (as a result of the <tt class="docutils literal"><span class="pre">-v</span></tt> flag) all lines containing our username.
+Finally, this output has been piped to <tt class="docutils literal"><span class="pre">wc</span></tt> which has counted the number of
+lines.</p>
 <div class="topic">
 <p class="topic-title first">Exercise 3b</p>
 <p>Create a file called <tt class="docutils literal"><span class="pre">current_users.txt</span></tt>, that holds a <strong>sorted</strong> list of
@@ -219,26 +231,31 @@ the system.</p>
 <col width="33%" />
 <col width="67%" />
 </colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Command</th>
+<th class="head">Description</th>
+</tr>
+</thead>
 <tbody valign="top">
-<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">command</span> <span class="pre">&gt;</span> <span class="pre">file</span></tt></td>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">command</span> <span class="pre">&gt;</span> <span class="pre">file</span></tt></td>
 <td>redirect standard output to a file</td>
 </tr>
-<tr class="row-even"><td><tt class="docutils literal"><span class="pre">command</span> <span class="pre">&gt;&gt;</span> <span class="pre">file</span></tt></td>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">command</span> <span class="pre">&gt;&gt;</span> <span class="pre">file</span></tt></td>
 <td>append standard output to a file</td>
 </tr>
-<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">command</span> <span class="pre">&lt;</span> <span class="pre">file</span></tt></td>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">command</span> <span class="pre">&lt;</span> <span class="pre">file</span></tt></td>
 <td>redirect standard input from a file</td>
 </tr>
-<tr class="row-even"><td><tt class="docutils literal"><span class="pre">command1</span> <span class="pre">|</span> <span class="pre">command2</span></tt></td>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">command1</span> <span class="pre">|</span> <span class="pre">command2</span></tt></td>
 <td>pipe the output of <tt class="docutils literal"><span class="pre">command1</span></tt> to the input of <tt class="docutils literal"><span class="pre">command2</span></tt></td>
 </tr>
-<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">cat</span> <span class="pre">file1</span> <span class="pre">file2</span> <span class="pre">&gt;</span> <span class="pre">file0</span></tt></td>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">cat</span> <span class="pre">file1</span> <span class="pre">file2</span> <span class="pre">&gt;</span> <span class="pre">file0</span></tt></td>
 <td>concatenate <tt class="docutils literal"><span class="pre">file1</span></tt> and <tt class="docutils literal"><span class="pre">file2</span></tt> to <tt class="docutils literal"><span class="pre">file0</span></tt></td>
 </tr>
-<tr class="row-even"><td><tt class="docutils literal"><span class="pre">sort</span></tt></td>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">sort</span></tt></td>
 <td>sort data</td>
 </tr>
-<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">who</span></tt></td>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">who</span></tt></td>
 <td>list users currently logged in</td>
 </tr>
 </tbody>

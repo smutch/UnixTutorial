@@ -12,6 +12,7 @@
     
     <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -58,10 +59,9 @@
 <h2>Listing files and directories<a class="headerlink" href="#listing-files-and-directories" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="ls-list">
 <h3><tt class="docutils literal"><span class="pre">ls</span></tt> (list)<a class="headerlink" href="#ls-list" title="Permalink to this headline">¶</a></h3>
-<p>When you first login, your current working directory is your home
-directory. Your home directory has the same name as your user-name, for
-example, and it is where your personal files and subdirectories
-are saved.</p>
+<p>When you first login, your current working directory is your home directory.
+Your home directory typically has the same name as your user-name and it is
+where your personal files and subdirectories are saved.</p>
 <p>To find out what is in your home directory, type:</p>
 <div class="highlight-console"><div class="highlight"><pre><span class="gp">%</span> ls
 </pre></div>
@@ -86,7 +86,7 @@ begin with a dot, type:</p>
 <p><tt class="docutils literal"><span class="pre">ls</span></tt> is an example of a command which can take <em>flags</em>: <tt class="docutils literal"><span class="pre">-a</span></tt> is an example.
 Flags change the behaviour of a command. There are manual pages that tell you
 which flags a particular command can take, and how each one modifies the
-behaviour of the command.</p>
+behaviour of the command (see the <a class="reference internal" href="part-4.html#getting-help"><em>getting help</em></a> section).</p>
 </div>
 </div>
 <div class="section" id="making-directories">
@@ -94,7 +94,7 @@ behaviour of the command.</p>
 <div class="section" id="mkdir-make-directory">
 <h3><tt class="docutils literal"><span class="pre">mkdir</span></tt> (make directory)<a class="headerlink" href="#mkdir-make-directory" title="Permalink to this headline">¶</a></h3>
 <p>We will now make a subdirectory in your home directory to hold the files
-you will be creating and using in the course of this tutorial. To make a
+you will be creating and using during the course of this tutorial. To make a
 subdirectory called &#8220;unix_tutorial&#8221; in your current working directory type:</p>
 <div class="highlight-console"><div class="highlight"><pre><span class="gp">%</span> mkdir unix_tutorial
 </pre></div>
@@ -128,7 +128,12 @@ your current position in the file-system tree.</p>
 </pre></div>
 </div>
 <p>Type <tt class="docutils literal"><span class="pre">ls</span></tt> to see the contents (which should be empty).</p>
-<span class="target" id="exercise1a"></span></div>
+<div class="topic" id="exercise-1a">
+<p class="topic-title first">Exercise 1a</p>
+<p>Make another directory inside the <tt class="docutils literal"><span class="pre">unix_tutorial</span></tt> directory called
+<tt class="docutils literal"><span class="pre">backups</span></tt>.</p>
+</div>
+</div>
 </div>
 <div class="section" id="the-directories-and">
 <h2>The directories <tt class="docutils literal"><span class="pre">.</span></tt> and <tt class="docutils literal"><span class="pre">..</span></tt><a class="headerlink" href="#the-directories-and" title="Permalink to this headline">¶</a></h2>
@@ -144,6 +149,11 @@ directories), there are two special directories called <tt class="docutils liter
 </pre></div>
 </div>
 <p>means stay where you are (the <tt class="docutils literal"><span class="pre">unix_tutorial</span></tt> directory).</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The space between <tt class="docutils literal"><span class="pre">cd</span></tt> and the dot is necessary.  <tt class="docutils literal"><span class="pre">cd</span></tt> is the command
+and <tt class="docutils literal"><span class="pre">.</span></tt> an argument which we are passing to <tt class="docutils literal"><span class="pre">cd</span></tt>.</p>
+</div>
 <p>This may not seem very useful at first, but using <tt class="docutils literal"><span class="pre">.</span></tt> as the name of
 the current directory will save a lot of typing, as we shall see later
 in the tutorial.</p>
@@ -153,6 +163,11 @@ in the tutorial.</p>
 </div>
 <p>will take you one directory up the hierarchy (back to your home
 directory). Try it now.</p>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">Typing cd with no argument always returns you to your home
+directory. This is very useful if you are lost in the file system.</p>
+</div>
 </div>
 <div class="section" id="pathnames">
 <h2>Pathnames<a class="headerlink" href="#pathnames" title="Permalink to this headline">¶</a></h2>
@@ -169,9 +184,14 @@ type:</p>
 <div class="highlight-console"><div class="highlight"><pre><span class="go">/Users/myname</span>
 </pre></div>
 </div>
-<p>which means that <tt class="docutils literal"><span class="pre">myname</span></tt> (your home directory) is in the directory
-<tt class="docutils literal"><span class="pre">Users</span></tt> (the group directory), which itself is located at the root of
-file-system.</p>
+<p>which means that <tt class="docutils literal"><span class="pre">myname</span></tt> (your home directory) is in the directory <tt class="docutils literal"><span class="pre">Users</span></tt>,
+which itself is located at the root of file-system.</p>
+<div class="topic">
+<p class="topic-title first">Exercise 1b</p>
+<p>Use the commands <tt class="docutils literal"><span class="pre">ls</span></tt>, <tt class="docutils literal"><span class="pre">pwd</span></tt> and <tt class="docutils literal"><span class="pre">cd</span></tt> to explore the file system.</p>
+<p>(Remember, if you get lost, type <tt class="docutils literal"><span class="pre">cd</span></tt> by itself to return to your
+home-directory)</p>
+</div>
 </div>
 </div>
 <div class="section" id="more-about-home-directories-and-pathnames">
@@ -216,32 +236,37 @@ currently are in the file system.</p>
 <h2>Summary of commands<a class="headerlink" href="#summary-of-commands" title="Permalink to this headline">¶</a></h2>
 <table border="1" class="docutils">
 <colgroup>
-<col width="28%" />
-<col width="72%" />
+<col width="26%" />
+<col width="74%" />
 </colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Command</th>
+<th class="head">Description</th>
+</tr>
+</thead>
 <tbody valign="top">
-<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">ls</span></tt></td>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">ls</span></tt></td>
 <td>list files and directories</td>
 </tr>
-<tr class="row-even"><td><tt class="docutils literal"><span class="pre">ls</span> <span class="pre">-a</span></tt></td>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">ls</span> <span class="pre">-a</span></tt></td>
 <td>list all files and directories (including hidden)</td>
 </tr>
-<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">mkdir</span></tt></td>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">mkdir</span></tt></td>
 <td>make a directory</td>
 </tr>
-<tr class="row-even"><td><tt class="docutils literal"><span class="pre">cd</span> <span class="pre">directory</span></tt></td>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">cd</span> <span class="pre">directory</span></tt></td>
 <td>change to named directory</td>
 </tr>
-<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">cd</span></tt></td>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">cd</span></tt></td>
 <td>change to home-directory</td>
 </tr>
-<tr class="row-even"><td><tt class="docutils literal"><span class="pre">cd</span> <span class="pre">~</span></tt></td>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">cd</span> <span class="pre">~</span></tt></td>
 <td>change to home-directory</td>
 </tr>
-<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">cd</span> <span class="pre">..</span></tt></td>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">cd</span> <span class="pre">..</span></tt></td>
 <td>change to parent directory of current location</td>
 </tr>
-<tr class="row-even"><td><tt class="docutils literal"><span class="pre">pwd</span></tt></td>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">pwd</span></tt></td>
 <td>display the full path of the current directory</td>
 </tr>
 </tbody>

@@ -9,8 +9,8 @@ responsible for opening files, dealing with the memory, allocating tasks to the
 processor and creating the underlying interface between the user and the
 machine. 
 
-Unix is made up of three basic components: the kernel :ref:`kernel
-<the_kernel>`, :ref:`shell <the_shell>` and the :ref:`files and processes
+Unix is made up of three basic components: the :ref:`kernel <the_kernel>`,
+the :ref:`shell <the_shell>` and the :ref:`files and processes
 <files_and_processes>`.
 
 .. _the_kernel:
@@ -52,8 +52,10 @@ There are a number of available Unix shells.  The most common and earliest is
 the Bourne SHell (`sh`) and is found on almost every Unix system.  Others
 include:
 
-- The C SHell (`csh`) and associated TC SHell (`tcsh`)
-- The Bourne Again SHell (`bash`) *- the default on Mac OS X*
+- The C SHell (`csh <http://en.wikipedia.org/wiki/C_shell>`_) and associated TC
+  SHell (`tcsh <http://www.tcsh.org/Welcome>`_) 
+- The Bourne Again SHell (`bash <http://www.gnu.org/software/bash/>`_) *- the
+  default on Mac OS X* 
 - The Z SHell (`zsh <http://zsh.sourceforge.net/>`_) *- my favorite!*
 
 .. warning::
