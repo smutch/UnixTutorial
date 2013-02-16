@@ -15,7 +15,7 @@ which is by default again the terminal screen.
 We have already seen one use of the ``cat`` command to write the contents of a
 file to the screen.
 
-Now type ``cat`` without specifying a file to read from standard input: ::
+Now type ``cat`` without specifying a file to read from standard input::
 
     % cat
 
@@ -37,7 +37,7 @@ Redirecting the Output  
 ------------------------
 
 We use the ``>`` symbol to redirect the output of a command. For example, to
-create a file called ``list1.txt`` containing a list of fruit, type: ::
+create a file called ``list1.txt`` containing a list of fruit, type::
 
     % cat > list1.txt
 
@@ -53,7 +53,7 @@ What happens is the cat command reads the standard input (the keyboard)
 and the ``>`` redirects the output, which normally goes to the screen, into
 a file called ``list1.txt``.
 
-To read the contents of the file, type: ::
+To read the contents of the file, type::
 
     % cat list1.txt
 
@@ -64,11 +64,11 @@ To read the contents of the file, type: ::
     of ``list2.txt``.
 
 The form ``>>`` appends standard output to a file. So to add more items to
-the file ``list1.txt``, type: ::
+the file ``list1.txt``, type::
 
     % cat >> list1.txt
 
-Then type in the names of more fruit: ::
+Then type in the names of more fruit::
 
     peach
     grape
@@ -76,27 +76,27 @@ Then type in the names of more fruit: ::
 
 and then ``^D`` (control D) to stop.
 
-To read the contents of the file, type: ::
+To read the contents of the file, type::
 
     % cat list1.txt
 
 You should now have two files. One contains six fruit, the other
 contains four fruit. We will now use the cat command to join
 (concatenate) ``list1.txt`` and ``list2.txt`` into a new file called
-``biglist.txt``. Type: ::
+``biglist.txt``. Type::
 
     % cat list1.txt list2.txt > biglist.txt
 
 What this is doing is reading the contents of ``list1.txt`` and ``list2.txt`` in
 turn, then outputting the text to the file ``biglist.txt``.
 
-To read the contents of the new file, type: ::
+To read the contents of the new file, type::
 
     % cat biglist.txt
 
 Piping the output of a command to a file can be extremely useful.  For example,
 imagine that we are running a large script which carries out some complex
-manipulation of our data and takes a long time to complete.  Typically we would
+manipulation of our data, taking a long time to complete.  Typically we would
 setup our script so that it prints out status messages telling us that certain
 tasks have been completed or certain files have been read/written.  By piping
 the output of our script to a file we can record these log messages for future
@@ -109,7 +109,7 @@ Redirecting the Input  
 
 We use the ``<`` symbol to redirect the input of a command.
 
-The command sort alphabetically or numerically sorts a list. Type: ::
+The command sort alphabetically or numerically sorts a list. Type::
 
     % sort
 
@@ -121,20 +121,20 @@ one. ::
     artichoke
     ^D
 
-The output will be: ::
+The output will be::
 
     artichoke
     beetroot
     carrot
 
 Using ``<`` you can redirect the input to come from a file rather than the
-keyboard. For example, to sort the list of fruit, type: ::
+keyboard. For example, to sort the list of fruit, type::
 
     % sort < biglist.txt
 
 and the sorted list will be output to the screen.
 
-To output the sorted list to a file, type: ::
+To output the sorted list to a file, type::
 
     % sort < biglist.txt > sorted_list.txt
 
@@ -144,38 +144,49 @@ Use cat to read the contents of the file ``sorted_list.txt``.
 Pipes
 -----
 
-To see who is on the system with you, type: ::
+To see who is on the system with you, type::
 
     % who
 
-One method to get a sorted list of names is to type: ::
+.. note::
+
+    If you are the only person currently logged into the system then try ``who
+    -a`` and use this in replace of ``who`` below.
+
+One method to get a sorted list of names is to type::
 
     % who > names.txt
     % sort < names.txt
 
-This is a bit slow and you have to remember to remove the temporary file
-called names when you have finished. What you really want to do is
-connect the output of the who command directly to the input of the sort
-command. This is exactly what pipes do. The symbol for a pipe is the
-vertical bar (``|``).  Pipes are one of the most useful features of Unix...
+This is a bit slow and you have to remember to remove the temporary file called
+names when you have finished. What you really want to do is connect the output
+of the ``who`` command directly to the input of the sort command. This is
+exactly what pipes do. The symbol for a pipe is the vertical bar (``|``).  Pipes
+are one of the most useful features of Unix...
 
-For example, typing: ::
+For example, typing::
 
     % who | sort
 
 will give the same result as above, but quicker and cleaner.
 
-To find out how many users are logged on, type: ::
+To find out how many users are logged on, type::
 
     % who | wc -l
 
-Pipes can be used to string together multiple commands, making them extremely powerful.  For example, in order to find out out many **other** users (i.e. excluding ourselves) are logged onto the system we could use the following: ::
+Pipes can be used to string together multiple commands, making them extremely
+powerful.  For example, in order to find out out many **other** users (i.e.
+excluding ourselves) are logged onto the system we could use the following::
 
     % who | grep -v [username] | wc -l
 
 where ``[username]`` should be replaced by your own user name.
 
-What we have done here is run the ``who`` to find out who is logged into the system.  The output has then been piped to the command ``grep`` which has **removed** (as a result of the ``-v`` flag) all lines containing our username.  Finally, this output has been piped to ``wc`` which has counted the number of lines.
+What we have done here is run the ``who`` command to find out who is logged into
+the system.  The output has then been piped to the command ``grep`` which has
+**removed** (as a result of the ``-v`` flag) all lines containing our username.
+Finally, this output has been piped to ``wc`` which has counted the number of
+lines.
 
 .. topic:: Exercise 3b
 
@@ -188,6 +199,8 @@ Summary of commands
 --------------------
 
 +-------------------------------+----------------------------------------------------------------+
+| Command                       | Description                                                    |
++===============================+================================================================+
 | ``command > file``            | redirect standard output to a file                             |
 +-------------------------------+----------------------------------------------------------------+
 | ``command >> file``           | append standard output to a file                               |

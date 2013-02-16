@@ -11,7 +11,7 @@ The characters ``\*`` and ``?``
 
 The character ``*`` is called a *wildcard*, and will match against none or more
 character(s) in a file (or directory) name. For example, in your ``unix_tutorial``
-directory, type: ::
+directory, type::
 
     % ls list*
 
@@ -56,6 +56,7 @@ that directory.
 It is important to recognise that a directory is merely a special type of file.
 So the rules and conventions for naming files apply also to directories.
 
+.. _getting-help:
 
 Getting Help
 ------------
@@ -63,7 +64,7 @@ Getting Help
 On-line Manuals
 ~~~~~~~~~~~~~~~
 
-There are on-line manuals which gives information about most commands.
+There are inbuilt manuals which gives information about most commands.
 The manual pages tell you which flags a particular command can take,
 and how each flag modifies the behaviour of the command. Use the ``man``
 command to read the manual page for a particular command.
@@ -83,7 +84,7 @@ about flags etc.
 ~~~~~~~~~~~
 
 When you are not sure of the exact name of a command you can try using the
-``apropos`` command. ::
+``apropos`` command::
 
     % apropos keyword
 
@@ -96,15 +97,17 @@ example, try typing::
 Summary of commands
 --------------------
 
-+-------------------------+-----------------------------------------------------+
-| ``*``                   | match any number of characters                      |
-+-------------------------+-----------------------------------------------------+
-| ``?``                   | match one character                                 |
-+-------------------------+-----------------------------------------------------+
-| ``man command``         | read the online manual page for a command           |
-+-------------------------+-----------------------------------------------------+
-| ``whatis command``      | brief description of a command                      |
-+-------------------------+-----------------------------------------------------+
-| ``apropos keyword``     | match commands with ``keyword`` in their man pages  |
-+-------------------------+-----------------------------------------------------+
++---------------------+----------------------------------------------------+
+| Command             | Description                                        |
++=====================+====================================================+
+| ``*``               | match any number of characters                     |
++---------------------+----------------------------------------------------+
+| ``?``               | match one character                                |
++---------------------+----------------------------------------------------+
+| ``man command``     | read the online manual page for a command          |
++---------------------+----------------------------------------------------+
+| ``whatis command``  | brief description of a command                     |
++---------------------+----------------------------------------------------+
+| ``apropos keyword`` | match commands with ``keyword`` in their man pages |
++---------------------+----------------------------------------------------+
 
