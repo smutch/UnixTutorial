@@ -56,6 +56,7 @@ that directory.
 It is important to recognise that a directory is merely a special type of file.
 So the rules and conventions for naming files apply also to directories.
 
+.. _getting-help:
 
 Getting Help
 ------------
