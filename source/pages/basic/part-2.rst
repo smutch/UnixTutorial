@@ -10,14 +10,14 @@ Copying Files
 ~~~~~~~~~~~~~
 
 The command ``cp file1 file2`` will make a copy of ``file1`` in the
-current working directory with then name ``file2``.
+current working directory with the name ``file2``.
 
-What we are going to do now is download a file from the internet, save it to
-our ``unix_tutorial`` directory and then use the ``cp`` command to copy that
-file to our ``backups`` directory (which we created in `exercise 1a
-<exercise1a>`).
+What we are going to do now is download a file from the internet, save it to our
+``unix_tutorial`` directory and then use the ``cp`` command to copy that file to
+our ``backups`` directory (which we created in :ref:`Exercise 1a
+<exercise-1a>`).
 
-First point your web browser to `this link <dummy>`_ and save this file using
+First point your web browser to `this link <dummy>`_ and save the file using
 "*Save as..*" to your ``unix_tutorial`` directory.
 
 .. todo::
@@ -176,8 +176,6 @@ Clear the screen and type: ::
 
     % tail my_first_file.txt
 
-How can you view the last 15 lines of the file?
-
 .. topic:: Exercise 2b
 
     Try using the tail command to view the last 15 lines of ``my_first_file.txt``. 
@@ -266,25 +264,27 @@ To find out how many lines the file has, type: ::
 Summary of commands
 --------------------
 
-+---------------------------+--------------------------------------------------+
-| ``cp file1 file2``        | copy ``file1`` and call it ``file2``             |
-+---------------------------+--------------------------------------------------+
-| ``mv file1 file2``        | move or rename ``file1`` to ``file2``            |
-+---------------------------+--------------------------------------------------+
-| ``rm file``               | remove a file                                    |
-+---------------------------+--------------------------------------------------+
-| ``rmdir directory``       | remove a directory                               |
-+---------------------------+--------------------------------------------------+
-| ``cat file``              | display a file                                   |
-+---------------------------+--------------------------------------------------+
-| ``more file``             | display a file a page at a time                  |
-+---------------------------+--------------------------------------------------+
-| ``head file``             | display the first few lines of a file            |
-+---------------------------+--------------------------------------------------+
-| ``tail file``             | display the last few lines of a file             |
-+---------------------------+--------------------------------------------------+
-| ``grep 'keyword' file``   | search a file for keywords                       |
-+---------------------------+--------------------------------------------------+
-| ``wc file``               | count number of lines/words/characters in file   |
-+---------------------------+--------------------------------------------------+
++-------------------------+------------------------------------------------+
+| Command                 | Description                                    |
++=========================+================================================+
+| ``cp file1 file2``      | copy ``file1`` and call it ``file2``           |
++-------------------------+------------------------------------------------+
+| ``mv file1 file2``      | move or rename ``file1`` to ``file2``          |
++-------------------------+------------------------------------------------+
+| ``rm file``             | remove a file                                  |
++-------------------------+------------------------------------------------+
+| ``rmdir directory``     | remove a directory                             |
++-------------------------+------------------------------------------------+
+| ``cat file``            | display a file                                 |
++-------------------------+------------------------------------------------+
+| ``more file``           | display a file a page at a time                |
++-------------------------+------------------------------------------------+
+| ``head file``           | display the first few lines of a file          |
++-------------------------+------------------------------------------------+
+| ``tail file``           | display the last few lines of a file           |
++-------------------------+------------------------------------------------+
+| ``grep 'keyword' file`` | search a file for keywords                     |
++-------------------------+------------------------------------------------+
+| ``wc file``             | count number of lines/words/characters in file |
++-------------------------+------------------------------------------------+
 

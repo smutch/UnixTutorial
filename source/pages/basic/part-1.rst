@@ -94,7 +94,7 @@ To change to the directory you have just made, type::
 Type ``ls`` to see the contents (which should be empty).
 
 
-.. _exercise1a:
+.. _exercise-1a:
 
 .. topic:: Exercise 1a
 
