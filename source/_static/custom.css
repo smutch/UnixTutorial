@@ -1,0 +1,24 @@
+blockquote {
+    background-color: #eee;
+    border: 1px solid #ccc;
+    font-size: 120%;
+}
+
+blockquote p {
+    margin-left: 10px;
+    margin-right: 10px;
+    font-family: 'Trebuchet MS', sans-serif;
+}
+
+p.attribution {
+    font-size: 80%;
+}
+
+div.admonition.tip {
+    background-color: #CCEBFF;
+    border: 1px solid #008AE6;
+}
+
+p.caption {
+    color: #808080
+}
