@@ -72,7 +72,7 @@ include:
 Files and Processes
 -------------------
 
-Everything in UNIX is either a file or a process.
+Everything in Unix is either a file or a process.
 
 A **process** is an executing program identified by a unique PID (process
 identifier).
