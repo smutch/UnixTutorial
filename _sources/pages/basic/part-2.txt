@@ -165,7 +165,7 @@ Then type::
 
     % head -5 my_first_file.txt
 
-What difference did the ``-5`` option do to the head command?
+What difference did the ``-5`` flag do to the head command?
 
 
 ``tail``
